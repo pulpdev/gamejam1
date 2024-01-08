@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://0vekxw1kda2o"]
+
+[ext_resource type="Script" path="res://custom/actions/typ_EventAction_Wait.gd" id="1_tddr2"]
+
+[node name="Wait" type="Node"]
+script = ExtResource("1_tddr2")

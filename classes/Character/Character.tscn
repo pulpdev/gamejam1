@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://bi0ensk61bpv5"]
+
+[ext_resource type="Script" path="res://classes/Character/obj_Character.gd" id="1_22fxh"]
+[ext_resource type="Script" path="res://classes/Character/cmp_Character_CameraPivot.gd" id="2_udrru"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bmk0q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u37tn"]
+size = Vector3(0.1, 0.1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ifp0i"]
+albedo_color = Color(1, 0.352941, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_h2a3d"]
+material = SubResource("StandardMaterial3D_ifp0i")
+size = Vector3(1, 2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gab2v"]
+size = Vector3(0.21, 0.16, 1)
+
+[node name="Character" type="CharacterBody3D"]
+script = ExtResource("1_22fxh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_bmk0q")
+
+[node name="CameraPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("2_udrru")
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+
+[node name="UseArea" type="Area3D" parent="CameraPivot"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraPivot/UseArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.537632)
+shape = SubResource("BoxShape3D_u37tn")
+
+[node name="Flashlight" type="SpotLight3D" parent="CameraPivot"]
+
+[node name="ModelPivot" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ModelPivot"]
+visible = false
+mesh = SubResource("BoxMesh_h2a3d")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ModelPivot/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.68696, -0.866925)
+visible = false
+mesh = SubResource("BoxMesh_gab2v")

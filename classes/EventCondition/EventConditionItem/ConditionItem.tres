@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ConditionItem" load_steps=2 format=3 uid="uid://dbmv23wtyn7rf"]
+
+[ext_resource type="Script" path="res://classes/EventCondition/EventConditionItem/obj_EventCondition_EventConditionItem.gd" id="1_weqjd"]
+
+[resource]
+script = ExtResource("1_weqjd")
+item = ""
+amount = 0
+variable = ""
+operand = "=="
+value = 0
