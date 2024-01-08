@@ -3,35 +3,7 @@ extends Node
 
 const ITEM_DIR : String = "res://custom/items/"
 
-@export var cache : Array[Item]
-
 @export var items : Array[Item]
-
-
-func _init():
-
-	var dir = DirAccess.open(ITEM_DIR)
-
-	for item in dir.get_files():
-
-		var x = load(ITEM_DIR + item)
-
-		x.name = item.trim_suffix(".tres")
-
-		cache.append(x)
-
-	AddItem("key_gold")
-
-
-func CachedItem(name : String):
-
-	for item in cache:
-
-		if item.name == name:
-
-			return true
-
-	return false
 
 
 func HasItem(name : String):
@@ -46,28 +18,49 @@ func HasItem(name : String):
 
 
 func GetItemQuantity(name : String):
-	
+
 	var q : int
-	
+
 	for item in items:
-		
+
 		if item.name == name:
-			
+
 			q += 1
 
 	return q
 
 
-func AddItem(name : String):
+func AddItem(iname : String):
 
-	for item in cache:
-		
-		if item.name == name:
-			
-			var new = item.duplicate()
-			
-			items.push_back(new)
+	var dir = DirAccess.open(ITEM_DIR)
+
+	for item in dir.get_files():
+
+		var x = load(ITEM_DIR + item)
+
+		x.name = item.trim_suffix(".tres")
+
+		if x.name != iname:
+
+			pass
+
+		else:
+
+			items.push_back(x)
+
+			return
+	
+	printerr("item not found, ", iname, ", didnt add")
+
+
+func RemoveItem(iname : String):
+
+	for item in items:
+
+		if item.name == iname:
+
+			items.pop_at(items.find(item))
 
 			return
 
-	printerr("item not found", name)
+	printerr("item not found, ", iname, ", didnt remove")

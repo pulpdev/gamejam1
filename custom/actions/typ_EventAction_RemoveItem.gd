@@ -11,6 +11,6 @@ func _init():
 
 func Execute():
 
-	Global.inventory.AddItem(item)
+	Global.inventory.RemoveItem(item)
 
 	finished.emit()

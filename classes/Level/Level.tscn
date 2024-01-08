@@ -4,9 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://bi0ensk61bpv5" path="res://classes/Character/Character.tscn" id="2_qt67v"]
 [ext_resource type="PackedScene" uid="uid://teia3swc1mlk" path="res://classes/Trigger/Trigger.tscn" id="3_5geqw"]
 [ext_resource type="PackedScene" uid="uid://bjkm2htnfqnoo" path="res://classes/Event/Event.tscn" id="4_w1rxb"]
+[ext_resource type="PackedScene" uid="uid://wup87kat5xaw" path="res://custom/models/key1.tscn" id="4_wrtcb"]
 [ext_resource type="PackedScene" uid="uid://cgkhxp1wa55lx" path="res://custom/actions/Dialogue.tscn" id="7_b08c7"]
 [ext_resource type="PackedScene" uid="uid://cox7dsrtm74ih" path="res://custom/actions/AddItem.tscn" id="7_y6fvo"]
 [ext_resource type="PackedScene" uid="uid://buju1jnvj65wh" path="res://custom/actions/DisableTrigger.tscn" id="8_lkxg3"]
+[ext_resource type="PackedScene" uid="uid://cken8vpog7da7" path="res://custom/actions/RemoveItem.tscn" id="9_yfog6"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_pupdm"]
 
@@ -20,12 +22,6 @@ material = SubResource("StandardMaterial3D_ifj31")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_hjmq5"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rct8w"]
-albedo_color = Color(0.14902, 0.556863, 0, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_xhh75"]
-material = SubResource("StandardMaterial3D_rct8w")
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3pfe0"]
 
@@ -42,7 +38,7 @@ ambient_light_color = Color(1, 1, 1, 1)
 script = ExtResource("1_b6as7")
 
 [node name="Player" parent="." instance=ExtResource("2_qt67v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.53481, 1.82638)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.63456, -1.23554)
 
 [node name="Background" type="Node3D" parent="."]
 
@@ -70,9 +66,8 @@ shape = SubResource("ConcavePolygonShape3D_hjmq5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26102, -1)
 type = 1
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Triggers/Trigger"]
-transform = Transform3D(1, 0, 0, 0, 0.04, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("CylinderMesh_xhh75")
+[node name="key1" parent="Triggers/Trigger" instance=ExtResource("4_wrtcb")]
+transform = Transform3D(0.68924, 0, 0.724533, 0, 1, 0, -0.724533, 0, 0.68924, -0.104494, 0.247611, 0.549751)
 
 [node name="Event" parent="Triggers/Trigger" instance=ExtResource("4_w1rxb")]
 
@@ -84,6 +79,9 @@ text = "I found a key."
 wait = true
 
 [node name="DisableTrigger" parent="Triggers/Trigger/Event" instance=ExtResource("8_lkxg3")]
+
+[node name="RemoveItem" parent="Triggers/Trigger/Event" instance=ExtResource("9_yfog6")]
+item = "key_gold"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_7rbnf")

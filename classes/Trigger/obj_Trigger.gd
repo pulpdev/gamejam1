@@ -3,7 +3,7 @@ extends Marker3D
 class_name Trigger
 
 
-enum TYPES {NONE, ACTIVATE, TOUCH, AUTO}
+enum TYPES {ACTIVATE, TOUCH}
 
 
 signal triggered

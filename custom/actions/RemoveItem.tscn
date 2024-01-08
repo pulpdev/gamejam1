@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cken8vpog7da7"]
+
+[ext_resource type="Script" path="res://custom/actions/typ_EventAction_RemoveItem.gd" id="1_n4ffj"]
+
+[node name="RemoveItem" type="Node"]
+script = ExtResource("1_n4ffj")
