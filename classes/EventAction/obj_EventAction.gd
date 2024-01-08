@@ -16,6 +16,8 @@ signal finished
 
 var enabled : bool
 
+var event : Event
+
 
 func _init():
 

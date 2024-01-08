@@ -18,6 +18,14 @@ var index : int = 0
 
 var playerbody : Character
 
+var enabled : bool = true : 
+	
+	set(d):
+		
+		enabled = d
+		
+		visible = enabled
+
 
 @export var type : TYPES
 
@@ -30,6 +38,10 @@ func _on_area_3d_body_entered(body):
 
 
 func RunEvents():
+
+	if not enabled:
+
+		return
 
 	for event in events:
 
@@ -51,3 +63,5 @@ func _on_child_entered_tree(node):
 	if node is Event:
 
 		events.append(node)
+		
+		node.trigger = self

@@ -17,6 +17,8 @@ var actions : Array[EventAction]
 
 var index : int = 0
 
+var trigger : Trigger
+
 
 func _ready():
 
@@ -115,3 +117,10 @@ func OnEventFinished():
 	if wait:
 
 		finished.emit()
+
+
+func _on_child_entered_tree(node):
+
+	if node is EventAction:
+		
+		node.event = self

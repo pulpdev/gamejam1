@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://buju1jnvj65wh"]
+
+[ext_resource type="Script" path="res://custom/actions/typ_EventAction_DisableTrigger.gd" id="1_i4l63"]
+
+[node name="DisableTrigger" type="Node"]
+script = ExtResource("1_i4l63")

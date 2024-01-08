@@ -1,13 +1,12 @@
-[gd_scene load_steps=21 format=3 uid="uid://cw8cj0q1ecrdl"]
+[gd_scene load_steps=18 format=3 uid="uid://cw8cj0q1ecrdl"]
 
 [ext_resource type="Script" path="res://classes/Level/obj_Level.gd" id="1_b6as7"]
 [ext_resource type="PackedScene" uid="uid://bi0ensk61bpv5" path="res://classes/Character/Character.tscn" id="2_qt67v"]
 [ext_resource type="PackedScene" uid="uid://teia3swc1mlk" path="res://classes/Trigger/Trigger.tscn" id="3_5geqw"]
-[ext_resource type="Script" path="res://classes/EventCondition/EventConditionItem/obj_EventCondition_EventConditionItem.gd" id="5_yssfe"]
-[ext_resource type="Script" path="res://classes/Event/obj_Event.gd" id="6_ij0kw"]
-[ext_resource type="Script" path="res://classes/EventCondition/EventConditionVariable/obj_EventCondition_EventConditionVariable.gd" id="6_p2fuq"]
+[ext_resource type="PackedScene" uid="uid://bjkm2htnfqnoo" path="res://classes/Event/Event.tscn" id="4_w1rxb"]
 [ext_resource type="PackedScene" uid="uid://cgkhxp1wa55lx" path="res://custom/actions/Dialogue.tscn" id="7_b08c7"]
 [ext_resource type="PackedScene" uid="uid://cox7dsrtm74ih" path="res://custom/actions/AddItem.tscn" id="7_y6fvo"]
+[ext_resource type="PackedScene" uid="uid://buju1jnvj65wh" path="res://custom/actions/DisableTrigger.tscn" id="8_lkxg3"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_pupdm"]
 
@@ -27,17 +26,6 @@ albedo_color = Color(0.14902, 0.556863, 0, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_xhh75"]
 material = SubResource("StandardMaterial3D_rct8w")
-
-[sub_resource type="Resource" id="Resource_eq8gh"]
-script = ExtResource("5_yssfe")
-item = "key_gold"
-amount = 1
-
-[sub_resource type="Resource" id="Resource_m8epl"]
-script = ExtResource("6_p2fuq")
-variable = "plot"
-operand = "=="
-value = 1
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3pfe0"]
 
@@ -86,25 +74,16 @@ type = 1
 transform = Transform3D(1, 0, 0, 0, 0.04, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("CylinderMesh_xhh75")
 
-[node name="Event" type="Node" parent="Triggers/Trigger"]
-script = ExtResource("6_ij0kw")
-conditions = Array[Resource("res://classes/EventCondition/obj_EventCondition.gd")]([SubResource("Resource_eq8gh")])
-
-[node name="Dialogue" parent="Triggers/Trigger/Event" instance=ExtResource("7_b08c7")]
-text = "1111111111111111"
-wait = true
+[node name="Event" parent="Triggers/Trigger" instance=ExtResource("4_w1rxb")]
 
 [node name="AddItem" parent="Triggers/Trigger/Event" instance=ExtResource("7_y6fvo")]
 item = "key_gold"
-amount = 10
 
-[node name="Event2" type="Node" parent="Triggers/Trigger"]
-script = ExtResource("6_ij0kw")
-conditions = Array[Resource("res://classes/EventCondition/obj_EventCondition.gd")]([SubResource("Resource_m8epl")])
-
-[node name="Dialogue" parent="Triggers/Trigger/Event2" instance=ExtResource("7_b08c7")]
-text = "2"
+[node name="Dialogue" parent="Triggers/Trigger/Event" instance=ExtResource("7_b08c7")]
+text = "I found a key."
 wait = true
+
+[node name="DisableTrigger" parent="Triggers/Trigger/Event" instance=ExtResource("8_lkxg3")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_7rbnf")
