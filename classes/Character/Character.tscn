@@ -6,7 +6,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bmk0q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u37tn"]
-size = Vector3(0.1, 0.1, 1)
+size = Vector3(0.1, 0.1, 1.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ifp0i"]
 albedo_color = Color(1, 0.352941, 1, 1)
@@ -33,7 +33,7 @@ script = ExtResource("2_udrru")
 [node name="UseArea" type="Area3D" parent="CameraPivot"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CameraPivot/UseArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.537632)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.734642)
 shape = SubResource("BoxShape3D_u37tn")
 
 [node name="Flashlight" type="SpotLight3D" parent="CameraPivot"]

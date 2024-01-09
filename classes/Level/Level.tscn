@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cw8cj0q1ecrdl"]
+[gd_scene load_steps=27 format=3 uid="uid://cw8cj0q1ecrdl"]
 
 [ext_resource type="Script" path="res://classes/Level/obj_Level.gd" id="1_b6as7"]
 [ext_resource type="PackedScene" uid="uid://bi0ensk61bpv5" path="res://classes/Character/Character.tscn" id="2_qt67v"]
@@ -9,8 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://cox7dsrtm74ih" path="res://custom/actions/AddItem.tscn" id="7_y6fvo"]
 [ext_resource type="PackedScene" uid="uid://buju1jnvj65wh" path="res://custom/actions/DisableTrigger.tscn" id="8_lkxg3"]
 [ext_resource type="PackedScene" uid="uid://cgeokd2e2nknx" path="res://classes/Trigger/Door/Door.tscn" id="10_41lnh"]
-[ext_resource type="PackedScene" uid="uid://cepbgixgqxas3" path="res://custom/events/CanUnlockDoor.tscn" id="10_vfxil"]
+[ext_resource type="Script" path="res://classes/Event/obj_Event.gd" id="10_dw31i"]
 [ext_resource type="Script" path="res://classes/Condition/ConditionItem/obj_Condition_ConditionItem.gd" id="10_xaamx"]
+[ext_resource type="PackedScene" uid="uid://cchwkmmoxay6p" path="res://custom/actions/UnlockDoor.tscn" id="11_cw203"]
+[ext_resource type="PackedScene" uid="uid://d0jhwdrbag7nd" path="res://custom/doors/drawer1.tscn" id="13_hg60a"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_pupdm"]
 
@@ -25,15 +27,10 @@ material = SubResource("StandardMaterial3D_ifj31")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_hjmq5"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
-[sub_resource type="Resource" id="Resource_x6wn6"]
+[sub_resource type="Resource" id="Resource_q48ph"]
 script = ExtResource("10_xaamx")
 item = "key_gold"
 amount = 1
-
-[sub_resource type="Resource" id="Resource_kk3bm"]
-script = ExtResource("10_xaamx")
-item = "key_gold"
-amount = 0
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3pfe0"]
 
@@ -45,6 +42,20 @@ background_mode = 2
 sky = SubResource("Sky_2kf5l")
 ambient_light_source = 3
 ambient_light_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Resource" id="Resource_8xoe1"]
+script = ExtResource("10_xaamx")
+item = "key_gold"
+amount = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ybtoo"]
+albedo_color = Color(0.196078, 0.113725, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_i7381"]
+material = SubResource("StandardMaterial3D_ybtoo")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_q8lyl"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_b6as7")
@@ -74,46 +85,53 @@ shape = SubResource("ConcavePolygonShape3D_hjmq5")
 
 [node name="Triggers" type="Node3D" parent="."]
 
-[node name="Trigger" parent="Triggers" instance=ExtResource("3_5geqw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.52674, -0.196916)
-type = 1
-
-[node name="key1" parent="Triggers/Trigger" instance=ExtResource("4_wrtcb")]
-transform = Transform3D(0.68924, 0, 0.724533, 0, 1, 0, -0.724533, 0, 0.68924, 0, 0, 0)
-
-[node name="Event" parent="Triggers/Trigger" instance=ExtResource("4_w1rxb")]
-
-[node name="AddItem" parent="Triggers/Trigger/Event" instance=ExtResource("7_y6fvo")]
-item = "key_gold"
-
-[node name="Dialogue" parent="Triggers/Trigger/Event" instance=ExtResource("7_b08c7")]
-text = "I found a key."
-
-[node name="DisableTrigger" parent="Triggers/Trigger/Event" instance=ExtResource("8_lkxg3")]
-
 [node name="Door" parent="Triggers" instance=ExtResource("10_41lnh")]
-transform = Transform3D(0.0999763, 0, 0.0217626, 0, 2, 0, -0.00217626, 0, 0.999763, 3.30776, 1.50353, -3.90087)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.23951, 1.75579, -2.24628)
 locked = true
+canClose = true
 
-[node name="CanUnlockDoor" parent="Triggers/Door" instance=ExtResource("10_vfxil")]
-conditions = Array[Resource("res://classes/Condition/obj_Condition.gd")]([SubResource("Resource_x6wn6")])
+[node name="Event" type="Node" parent="Triggers/Door"]
+script = ExtResource("10_dw31i")
+conditions = Array[Resource("res://classes/Condition/obj_Condition.gd")]([SubResource("Resource_q48ph")])
 
-[node name="RemoveItem" parent="Triggers/Door/CanUnlockDoor" index="0"]
-item = "key_gold"
-
-[node name="Dialogue" parent="Triggers/Door/CanUnlockDoor" instance=ExtResource("7_b08c7")]
-text = "It worked"
-
-[node name="Event2" parent="Triggers/Door" instance=ExtResource("4_w1rxb")]
-conditions = Array[Resource("res://classes/Condition/obj_Condition.gd")]([SubResource("Resource_kk3bm")])
-
-[node name="Dialogue" parent="Triggers/Door/Event2" instance=ExtResource("7_b08c7")]
-text = "I need a key."
-wait = true
+[node name="UnlockDoor" parent="Triggers/Door/Event" instance=ExtResource("11_cw203")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_7rbnf")
 
-[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
+[node name="Drawer" parent="." instance=ExtResource("13_hg60a")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.41266, 1.23646, -0.875886)
+canClose = true
 
-[editable path="Triggers/Door/CanUnlockDoor"]
+[node name="key" parent="Drawer" instance=ExtResource("3_5geqw")]
+transform = Transform3D(-0.505, 0, 4.41485e-08, 0, 0.505, 0, -4.41485e-08, 0, -0.505, 0.0964539, 0.0259863, 0.109878)
+
+[node name="key1" parent="Drawer/key" instance=ExtResource("4_wrtcb")]
+transform = Transform3D(1.97123, 0, 2.07216, 0, 2.86, 0, -2.07216, 0, 1.97123, 0, 0, 0)
+
+[node name="Event" parent="Drawer/key" instance=ExtResource("4_w1rxb")]
+
+[node name="AddItem" parent="Drawer/key/Event" instance=ExtResource("7_y6fvo")]
+item = "key_gold"
+
+[node name="Dialogue" parent="Drawer/key/Event" instance=ExtResource("7_b08c7")]
+text = "I found a key."
+
+[node name="DisableTrigger" parent="Drawer/key/Event" instance=ExtResource("8_lkxg3")]
+
+[node name="Event" type="Node" parent="Drawer"]
+script = ExtResource("10_dw31i")
+conditions = Array[Resource("res://classes/Condition/obj_Condition.gd")]([SubResource("Resource_8xoe1")])
+
+[node name="UnlockDoor" parent="Drawer/Event" instance=ExtResource("11_cw203")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.22, 0, 0, 0, 3.32, 0, 0, 0, 2.03, 3.533, 2.175, -0.385)
+mesh = SubResource("BoxMesh_i7381")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_q8lyl")
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]

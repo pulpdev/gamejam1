@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgeokd2e2nknx"]
+[gd_scene load_steps=8 format=3 uid="uid://buopvb1ge7iga"]
 
-[ext_resource type="Script" path="res://classes/Trigger/Door/obj_Trigger_Door.gd" id="1_ed1d8"]
+[ext_resource type="Script" path="res://classes/Trigger/Door/obj_Trigger_Door.gd" id="1_08h23"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r1tpn"]
 
@@ -19,7 +19,8 @@ albedo_color = Color(0.266667, 0.266667, 0.266667, 1)
 material = SubResource("StandardMaterial3D_g7jsh")
 
 [node name="Door" type="Marker3D"]
-script = ExtResource("1_ed1d8")
+script = ExtResource("1_08h23")
+canClose = true
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 2.5, 0, 0, 0, 1.25, 0, 0, -0.622334)

@@ -61,4 +61,10 @@ func ActivateTriggers(triggers : Array):
 
 			if trigger is Door and not trigger.locked:
 
+				if not trigger.canClose:
+
+					if trigger.opened:
+
+						return
+
 				trigger.Open()

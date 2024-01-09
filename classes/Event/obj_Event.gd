@@ -20,6 +20,11 @@ var index : int = 0
 var trigger : Trigger
 
 
+func _init():
+
+	child_entered_tree.connect(_on_child_entered_tree)
+
+
 func _ready():
 
 	for c in get_children():
