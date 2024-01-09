@@ -2,7 +2,7 @@ extends EventAction
 
 
 func _init():
-	
+
 	wait = true
 
 

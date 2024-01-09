@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cw8cj0q1ecrdl"]
+[gd_scene load_steps=22 format=3 uid="uid://cw8cj0q1ecrdl"]
 
 [ext_resource type="Script" path="res://classes/Level/obj_Level.gd" id="1_b6as7"]
 [ext_resource type="PackedScene" uid="uid://bi0ensk61bpv5" path="res://classes/Character/Character.tscn" id="2_qt67v"]
@@ -9,9 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://cox7dsrtm74ih" path="res://custom/actions/AddItem.tscn" id="7_y6fvo"]
 [ext_resource type="PackedScene" uid="uid://buju1jnvj65wh" path="res://custom/actions/DisableTrigger.tscn" id="8_lkxg3"]
 [ext_resource type="PackedScene" uid="uid://cgeokd2e2nknx" path="res://classes/Trigger/Door/Door.tscn" id="10_41lnh"]
+[ext_resource type="PackedScene" uid="uid://cepbgixgqxas3" path="res://custom/events/CanUnlockDoor.tscn" id="10_vfxil"]
 [ext_resource type="Script" path="res://classes/Condition/ConditionItem/obj_Condition_ConditionItem.gd" id="10_xaamx"]
-[ext_resource type="PackedScene" uid="uid://cken8vpog7da7" path="res://custom/actions/RemoveItem.tscn" id="11_3l71q"]
-[ext_resource type="PackedScene" uid="uid://cchwkmmoxay6p" path="res://custom/actions/UnlockDoor.tscn" id="11_cw203"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_pupdm"]
 
@@ -26,15 +25,15 @@ material = SubResource("StandardMaterial3D_ifj31")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_hjmq5"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
+[sub_resource type="Resource" id="Resource_x6wn6"]
+script = ExtResource("10_xaamx")
+item = "key_gold"
+amount = 1
+
 [sub_resource type="Resource" id="Resource_kk3bm"]
 script = ExtResource("10_xaamx")
 item = "key_gold"
 amount = 0
-
-[sub_resource type="Resource" id="Resource_vj0ed"]
-script = ExtResource("10_xaamx")
-item = "key_gold"
-amount = 1
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3pfe0"]
 
@@ -96,6 +95,15 @@ text = "I found a key."
 transform = Transform3D(0.0999763, 0, 0.0217626, 0, 2, 0, -0.00217626, 0, 0.999763, 3.30776, 1.50353, -3.90087)
 locked = true
 
+[node name="CanUnlockDoor" parent="Triggers/Door" instance=ExtResource("10_vfxil")]
+conditions = Array[Resource("res://classes/Condition/obj_Condition.gd")]([SubResource("Resource_x6wn6")])
+
+[node name="RemoveItem" parent="Triggers/Door/CanUnlockDoor" index="0"]
+item = "key_gold"
+
+[node name="Dialogue" parent="Triggers/Door/CanUnlockDoor" instance=ExtResource("7_b08c7")]
+text = "It worked"
+
 [node name="Event2" parent="Triggers/Door" instance=ExtResource("4_w1rxb")]
 conditions = Array[Resource("res://classes/Condition/obj_Condition.gd")]([SubResource("Resource_kk3bm")])
 
@@ -103,18 +111,9 @@ conditions = Array[Resource("res://classes/Condition/obj_Condition.gd")]([SubRes
 text = "I need a key."
 wait = true
 
-[node name="Event" parent="Triggers/Door" instance=ExtResource("4_w1rxb")]
-conditions = Array[Resource("res://classes/Condition/obj_Condition.gd")]([SubResource("Resource_vj0ed")])
-
-[node name="RemoveItem" parent="Triggers/Door/Event" instance=ExtResource("11_3l71q")]
-item = "key_gold"
-
-[node name="UnlockDoor" parent="Triggers/Door/Event" instance=ExtResource("11_cw203")]
-
-[node name="Dialogue" parent="Triggers/Door/Event" instance=ExtResource("7_b08c7")]
-text = "The key worked."
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_7rbnf")
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
+
+[editable path="Triggers/Door/CanUnlockDoor"]
