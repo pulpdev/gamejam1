@@ -5,12 +5,10 @@ class_name ConditionItem
 
 @export var item : String
 
-@export_range(0, 999999) var amount : int = 1
-
 
 func ConditionMet():
 
-	if Global.inventory.GetItemQuantity(item) == amount:
+	if Global.inventory.GetItemQuantity(item) > 0:
 
 		return true
 

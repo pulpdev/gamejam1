@@ -20,7 +20,10 @@ enum OPEN_TYPES {SWING, PUSH}
 
 var opened : bool
 
+
 @onready var initPosition : Vector3 = global_position
+
+@onready var initRotation : Vector3 = global_rotation
 
 
 func Open():
@@ -34,16 +37,16 @@ func Open():
 		OPEN_TYPES.SWING:
 
 			if not opened:
-
+				print("opening")
 				var t = create_tween()
 				
 				t.tween_property(
 					
 					self,
 					
-					"rotation_degrees",
+					"global_rotation",
 					
-					Vector3(0,-90,0),
+					global_rotation + Vector3(0,deg_to_rad(90),0),
 					
 					1
 				)
@@ -51,16 +54,16 @@ func Open():
 				opened = true
 				
 			else:
-				
+				print("closing")
 				var t = create_tween()
 				
 				t.tween_property(
 					
 					self,
 					
-					"rotation_degrees",
+					"global_rotation",
 					
-					Vector3(0,0,0),
+					initRotation,
 					
 					1
 				)
@@ -77,9 +80,9 @@ func Open():
 					
 					self,
 					
-					"position",
+					"global_position",
 					
-					position - Vector3(model.scale.x,0,0),
+					global_position - Vector3(model.scale.x,0,0),
 					
 					1
 				)
@@ -94,7 +97,7 @@ func Open():
 					
 					self,
 					
-					"position",
+					"global_position",
 					
 					initPosition,
 					

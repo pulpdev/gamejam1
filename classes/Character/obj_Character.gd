@@ -15,19 +15,19 @@ class_name Character
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-var flashlighting : bool :
-	
+var flashlighting : bool = false:
+
 	set(b):
 		
 		flashlighting = b
 		
 		if flashlighting:
 			
-			pivot_camera.flashlight.light_color = Color(0,0,0,0)
+			pivot_camera.flashlight.light_color = Color(1,1,1,1)
 			
 		else:
 			
-			pivot_camera.flashlight.light_color = Color(1,1,1,1)
+			pivot_camera.flashlight.light_color = Color(0,0,0,0)
 
 
 var jumped : bool :
@@ -42,6 +42,11 @@ var vector_input : Vector2:
 	get:
 
 		return Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+		
+		
+func _ready():
+	
+	flashlighting = false
 
 
 func _unhandled_input(event):
