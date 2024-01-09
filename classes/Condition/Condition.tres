@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EventCondition" load_steps=2 format=3 uid="uid://c1rylv6ijib6u"]
 
-[ext_resource type="Script" path="res://classes/EventCondition/obj_EventCondition.gd" id="1_0rywx"]
+[ext_resource type="Script" path="res://classes/Condition/obj_Condition.gd" id="1_0rywx"]
 
 [resource]
 script = ExtResource("1_0rywx")

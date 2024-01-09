@@ -19,14 +19,14 @@ func HasItem(name : String):
 
 func GetItemQuantity(name : String):
 
-	var q : int
+	var q : int = 0
 
 	for item in items:
 
 		if item.name == name:
 
 			q += 1
-
+	
 	return q
 
 

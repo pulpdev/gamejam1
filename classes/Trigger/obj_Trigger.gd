@@ -11,7 +11,17 @@ signal triggered
 
 var events : Array[Event]
 
-@onready var area := $Area3D
+@onready var area : Area3D :
+	
+	get:
+		
+		if self is Door:
+			
+			return $Node3D/Area3D
+			
+		else:
+			
+			return $Area3D
 
 
 var index : int = 0
@@ -30,6 +40,16 @@ var enabled : bool = true :
 @export var type : TYPES
 
 
+func _init():
+
+	child_entered_tree.connect(_on_child_entered_tree)
+
+
+func _ready():
+
+	area.body_entered.connect(_on_area_3d_body_entered)
+
+
 func _on_area_3d_body_entered(body):
 
 	if body == get_tree().current_scene.player and type == TYPES.TOUCH:
@@ -40,6 +60,10 @@ func _on_area_3d_body_entered(body):
 func RunEvents():
 
 	if not enabled:
+
+		return
+
+	if self is Door and not self.locked and not self.runEventsIfUnlocked:
 
 		return
 

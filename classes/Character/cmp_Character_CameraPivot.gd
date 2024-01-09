@@ -58,3 +58,7 @@ func ActivateTriggers(triggers : Array):
 		if trigger.type == Trigger.TYPES.ACTIVATE and Input.is_action_just_pressed("action_use"):
 
 			trigger.RunEvents()
+
+			if trigger is Door and not trigger.locked:
+
+				trigger.Open()
