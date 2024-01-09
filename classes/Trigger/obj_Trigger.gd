@@ -87,5 +87,5 @@ func _on_child_entered_tree(node):
 	if node is Event:
 
 		events.append(node)
-		
+
 		node.trigger = self

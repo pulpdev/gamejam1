@@ -68,6 +68,8 @@ func Run(startat : int = index):
 
 		var action : EventAction = actions[i]
 
+		print(action.get_index())
+
 		if action.get_index() < actions.size() - 1:
 
 			if action.wait:

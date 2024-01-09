@@ -8,6 +8,8 @@ signal player_entered(player : Character)
 
 @onready var inventory := $inventory
 
+@onready var vfx := $vfx
+
 
 @export var variables : Dictionary = {
 

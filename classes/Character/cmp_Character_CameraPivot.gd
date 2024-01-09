@@ -46,6 +46,12 @@ func _physics_process(delta):
 
 
 func ActivateTriggers(triggers : Array):
+	
+	for thing in triggers:
+		
+		if not thing.owner is Trigger:
+			
+			triggers.pop_at(triggers.find(thing))
 
 	if triggers.size() == 0:
 

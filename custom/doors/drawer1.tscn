@@ -1,18 +1,22 @@
 [gd_scene load_steps=8 format=3 uid="uid://d0jhwdrbag7nd"]
 
 [ext_resource type="Script" path="res://classes/Trigger/Door/obj_Trigger_Door.gd" id="1_dnbi2"]
+[ext_resource type="Texture2D" uid="uid://ck6afm40x8aej" path="res://assets/textures/door_1.png" id="2_5s20m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r1tpn"]
-margin = 0.1
-size = Vector3(0.408646, 0.292763, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_jct7s"]
+size = Vector3(0.259697, 0.289673, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4qawv"]
-albedo_color = Color(0.243137, 0.145098, 0, 1)
+albedo_texture = ExtResource("2_5s20m")
+uv1_scale = Vector3(1.435, 1.9, 2)
+uv1_offset = Vector3(-0.995, 0.07, 0)
+uv2_scale = Vector3(1.535, 1, 1)
+uv2_offset = Vector3(0.035, 0, 0)
 
 [sub_resource type="BoxMesh" id="BoxMesh_e4x4q"]
+lightmap_size_hint = Vector2i(14, 21)
 material = SubResource("StandardMaterial3D_4qawv")
+add_uv2 = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g7jsh"]
 albedo_color = Color(0.266667, 0.266667, 0.266667, 1)
@@ -27,17 +31,11 @@ openType = 1
 [node name="Node3D" type="Node3D" parent="."]
 
 [node name="Area3D" type="Area3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.583288, 0.134606, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.411883, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125084, -0.00721359, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0574245, 0.121765, 0)
 shape = SubResource("BoxShape3D_r1tpn")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/StaticBody3D"]
-shape = SubResource("BoxShape3D_jct7s")
-disabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
 transform = Transform3D(1.1, 0, 0, 0, 0.05, 0, 0, 0, 1, -0.0540546, 0, 0)

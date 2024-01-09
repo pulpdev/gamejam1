@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dka20nfnes8mp"]
+
+[ext_resource type="Script" path="res://custom/actions/typ_EventAction_FadeOut.gd" id="1_0tyn3"]
+
+[node name="FadeOut" type="Node"]
+script = ExtResource("1_0tyn3")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
