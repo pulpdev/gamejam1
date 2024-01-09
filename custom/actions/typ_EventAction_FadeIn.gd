@@ -4,13 +4,6 @@ extends EventAction
 @export var time : float = 0.0
 
 
-func _init():
-	
-	if time <= 0.0:
-		
-		wait = true
-
-
 func Execute():
 
 	Global.vfx.FadeIn(time)
@@ -18,6 +11,8 @@ func Execute():
 	if time <= 0.0:
 
 		finished.emit()
+
+		return
 
 	else:
 
@@ -28,4 +23,6 @@ func Execute():
 
 func _on_timer_timeout():
 
-	finished.emit()
+	if wait:
+
+		finished.emit()

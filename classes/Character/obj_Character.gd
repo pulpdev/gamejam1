@@ -7,6 +7,8 @@ class_name Character
 
 @onready var pivot_model := $ModelPivot
 
+@onready var footsteps := $Footsteps
+
 
 @export var speed : float = 3.0
 
@@ -36,8 +38,8 @@ var flashlighting : bool = false:
 		else:
 			
 			pivot_camera.flashlight.light_color = Color(0,0,0,0)
-			
-			
+
+
 @export var enableInput : bool = true
 
 @export var canFlashlight : bool = true
@@ -58,7 +60,9 @@ var vector_input : Vector2:
 
 
 func _ready():
-	
+
+	footsteps.timer.wait_time = speed / 6.0
+
 	Global.player_entered.emit(self)
 
 	flashlighting = false
@@ -78,6 +82,22 @@ func _physics_process(delta):
 		move(Vector3(vector_input.x, vector_input.y, 0), delta)
 
 	pivot_model.rotation.y = pivot_camera.rotation.y
+
+	if not vector_input == Vector2.ZERO and is_on_floor():
+
+		if footsteps.timer.is_stopped():
+
+			footsteps.timer.start()
+
+	else:
+
+		footsteps.timer.stop()
+
+	if is_on_floor() and footsteps.playJumpLandSound:
+
+		footsteps.landPlayer.play()
+
+		footsteps.playJumpLandSound = false
 
 
 func _process(delta):
@@ -111,6 +131,10 @@ func move(dir : Vector3, delta):
 		velocity.y -= gravity * delta
 
 	if jumped:
+
+		footsteps.playJumpLandSound = true
+
+		footsteps.jumpPlayer.play()
 
 		velocity.y = jumpheight
 

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ij5hofbnm8ox"]
+
+[ext_resource type="Script" path="res://custom/actions/typ_EventAction_SetAmbiance.gd" id="1_st31h"]
+
+[node name="SetAmbiance" type="Node"]
+script = ExtResource("1_st31h")

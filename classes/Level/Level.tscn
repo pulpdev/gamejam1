@@ -1,6 +1,7 @@
-[gd_scene load_steps=43 format=3 uid="uid://cw8cj0q1ecrdl"]
+[gd_scene load_steps=47 format=3 uid="uid://cw8cj0q1ecrdl"]
 
 [ext_resource type="Script" path="res://classes/Level/obj_Level.gd" id="1_b6as7"]
+[ext_resource type="AudioStream" uid="uid://cnhhwdbxge2kh" path="res://assets/sounds/amb_wind_1.wav" id="2_5gvqw"]
 [ext_resource type="PackedScene" uid="uid://bi0ensk61bpv5" path="res://classes/Character/Character.tscn" id="2_qt67v"]
 [ext_resource type="PackedScene" uid="uid://teia3swc1mlk" path="res://classes/Trigger/Trigger.tscn" id="3_5geqw"]
 [ext_resource type="PackedScene" uid="uid://cicbgk2makb6i" path="res://custom/models/cabinet1.tscn" id="3_34ekt"]
@@ -25,6 +26,9 @@
 [ext_resource type="PackedScene" uid="uid://bfdmr12wn6xq6" path="res://custom/actions/DisableFlashlight.tscn" id="20_5aodn"]
 [ext_resource type="PackedScene" uid="uid://rdblw6nmfbye" path="res://custom/actions/EnableFlashlight.tscn" id="21_isuns"]
 [ext_resource type="PackedScene" uid="uid://b05p6ylnfqjgh" path="res://custom/actions/EnablePlayer.tscn" id="22_jep3t"]
+[ext_resource type="PackedScene" uid="uid://ij5hofbnm8ox" path="res://custom/actions/SetAmbiance.tscn" id="27_27ek0"]
+[ext_resource type="AudioStream" uid="uid://cddfhi4suv0li" path="res://assets/sounds/amb_dark_1.wav" id="28_uabt0"]
+[ext_resource type="AudioStream" uid="uid://bfhrixbr365s4" path="res://assets/sounds/amb_night_1.wav" id="29_cwqfv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ifj31"]
 albedo_color = Color(0.435294, 0.435294, 0.435294, 1)
@@ -79,6 +83,7 @@ item = "key_gold"
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_b6as7")
+ambiance = ExtResource("2_5gvqw")
 
 [node name="Player" parent="." instance=ExtResource("2_qt67v")]
 transform = Transform3D(-0.99667, 0, 0.0815383, 0, 1, 0, -0.0815383, 0, -0.99667, 0, 1.63456, -3.77896)
@@ -328,8 +333,7 @@ script = ExtResource("10_dw31i")
 [node name="FadeOut" parent="Trigger/Event" instance=ExtResource("19_lkxeu")]
 
 [node name="FadeIn" parent="Trigger/Event" instance=ExtResource("19_x2mh8")]
-time = 1.0
-wait = true
+time = 5.0
 
 [node name="DisablePlayer" parent="Trigger/Event" instance=ExtResource("19_vx38e")]
 
@@ -337,12 +341,31 @@ wait = true
 
 [node name="Dialogue" parent="Trigger/Event" instance=ExtResource("7_b08c7")]
 text = "I need to solve this case."
-wait = true
 
 [node name="EnableFlashlight" parent="Trigger/Event" instance=ExtResource("21_isuns")]
 
 [node name="EnablePlayer" parent="Trigger/Event" instance=ExtResource("22_jep3t")]
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("19_j62gm")]
+
+[node name="Trigger2" parent="." instance=ExtResource("3_5geqw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.105, -0.279105, 1.88149, 6.67757)
+type = 1
+
+[node name="Event" type="Node" parent="Trigger2"]
+script = ExtResource("10_dw31i")
+
+[node name="SetAmbiance" parent="Trigger2/Event" instance=ExtResource("27_27ek0")]
+sound = ExtResource("28_uabt0")
+
+[node name="Trigger3" parent="." instance=ExtResource("3_5geqw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.105, -0.279105, 1.88149, 6.4329)
+type = 1
+
+[node name="Event" type="Node" parent="Trigger3"]
+script = ExtResource("10_dw31i")
+
+[node name="SetAmbiance" parent="Trigger3/Event" instance=ExtResource("27_27ek0")]
+sound = ExtResource("29_cwqfv")
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]

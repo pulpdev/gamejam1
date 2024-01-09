@@ -19,6 +19,8 @@ func Execute():
 
 		finished.emit()
 
+		return
+
 	else:
 
 		$Timer.wait_time = time
@@ -28,4 +30,6 @@ func Execute():
 
 func _on_timer_timeout():
 
-	finished.emit()
+	if wait:
+
+		finished.emit()

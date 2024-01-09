@@ -1,6 +1,9 @@
 extends Node
 
 
+const DEFAULT_AMB_DB : float = -10.0
+
+
 signal player_entered(player : Character)
 
 

@@ -1,7 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bi0ensk61bpv5"]
+[gd_scene load_steps=11 format=3 uid="uid://bi0ensk61bpv5"]
 
 [ext_resource type="Script" path="res://classes/Character/obj_Character.gd" id="1_22fxh"]
 [ext_resource type="Script" path="res://classes/Character/cmp_Character_CameraPivot.gd" id="2_udrru"]
+[ext_resource type="Script" path="res://classes/Character/cmp_Character_Footsteps.gd" id="3_iwkfl"]
+[ext_resource type="AudioStream" uid="uid://b3jvrhvmrx24q" path="res://assets/sounds/jump_2.wav" id="4_4l5st"]
+[ext_resource type="AudioStream" uid="uid://cpl8fru0nfedu" path="res://assets/sounds/land_2.wav" id="5_an4xp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bmk0q"]
 
@@ -49,3 +52,22 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.68696, -0.866925)
 visible = false
 mesh = SubResource("BoxMesh_gab2v")
+
+[node name="Footsteps" type="Node3D" parent="."]
+script = ExtResource("3_iwkfl")
+
+[node name="StepSound" type="AudioStreamPlayer3D" parent="Footsteps"]
+pitch_scale = 1.05
+
+[node name="JumpSound" type="AudioStreamPlayer3D" parent="Footsteps"]
+stream = ExtResource("4_4l5st")
+max_polyphony = 2
+
+[node name="LandSound" type="AudioStreamPlayer3D" parent="Footsteps"]
+stream = ExtResource("5_an4xp")
+max_polyphony = 2
+
+[node name="Timer" type="Timer" parent="Footsteps"]
+process_callback = 0
+
+[connection signal="timeout" from="Footsteps/Timer" to="Footsteps" method="_on_timer_timeout"]
