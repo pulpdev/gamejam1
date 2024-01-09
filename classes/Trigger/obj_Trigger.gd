@@ -54,16 +54,6 @@ func _on_area_3d_body_entered(body):
 
 	if body == get_tree().current_scene.player and type == TYPES.TOUCH:
 
-		if self is Door and not self.locked:
-
-			if not self.canClose:
-
-				if self.opened:
-
-					return
-
-			call("Open")
-
 		RunEvents()
 
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://classes/Trigger/Door/obj_Trigger_Door.gd" id="1_ed1d8"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_r1tpn"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_8udml"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jct7s"]
 
@@ -27,7 +27,7 @@ transform = Transform3D(0.1, 0, 0, 0, 2.5, 0, 0, 0, 1.25, 0, 0, -0.622334)
 [node name="Area3D" type="Area3D" parent="Node3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Area3D"]
-shape = SubResource("BoxShape3D_r1tpn")
+shape = SubResource("BoxShape3D_8udml")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Node3D"]
 

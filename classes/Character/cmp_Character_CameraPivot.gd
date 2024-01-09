@@ -20,9 +20,9 @@ func _input(event):
 
 	if event is InputEventMouseMotion:
 
-		vector_mouse.x = -event.relative.y * 0.5
+		vector_mouse.x = -event.relative.y * 1
 
-		vector_mouse.y = -event.relative.x * 0.5
+		vector_mouse.y = -event.relative.x * 1
 
 
 func _process(delta):

@@ -46,7 +46,7 @@ func Open():
 					
 					"global_rotation",
 					
-					global_rotation + Vector3(0,deg_to_rad(90),0),
+					initRotation + Vector3(0,deg_to_rad(90),0),
 					
 					1
 				)
@@ -82,7 +82,7 @@ func Open():
 					
 					"global_position",
 					
-					global_position - Vector3(model.scale.x,0,0),
+					initPosition - Vector3(1,0,0),
 					
 					1
 				)
