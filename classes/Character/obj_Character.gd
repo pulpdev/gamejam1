@@ -21,6 +21,14 @@ var flashlighting : bool = false:
 		
 		flashlighting = b
 		
+		if not canFlashlight:
+			
+			flashlighting = false
+		
+			pivot_camera.flashlight.light_color = Color(0,0,0,0)
+		
+			return
+		
 		if flashlighting:
 			
 			pivot_camera.flashlight.light_color = Color(1,1,1,1)
@@ -28,6 +36,11 @@ var flashlighting : bool = false:
 		else:
 			
 			pivot_camera.flashlight.light_color = Color(0,0,0,0)
+			
+			
+@export var enableInput : bool = true
+
+@export var canFlashlight : bool = true
 
 
 var jumped : bool :
@@ -42,10 +55,12 @@ var vector_input : Vector2:
 	get:
 
 		return Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-		
-		
+
+
 func _ready():
 	
+	Global.player_entered.emit(self)
+
 	flashlighting = false
 
 
@@ -58,7 +73,9 @@ func _unhandled_input(event):
 
 func _physics_process(delta):
 
-	move(Vector3(vector_input.x, vector_input.y, 0), delta)
+	if enableInput:
+
+		move(Vector3(vector_input.x, vector_input.y, 0), delta)
 
 	pivot_model.rotation.y = pivot_camera.rotation.y
 

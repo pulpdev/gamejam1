@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cw8cj0q1ecrdl"]
+[gd_scene load_steps=41 format=3 uid="uid://cw8cj0q1ecrdl"]
 
 [ext_resource type="Script" path="res://classes/Level/obj_Level.gd" id="1_b6as7"]
 [ext_resource type="PackedScene" uid="uid://bi0ensk61bpv5" path="res://classes/Character/Character.tscn" id="2_qt67v"]
@@ -18,6 +18,11 @@
 [ext_resource type="Material" uid="uid://ds5f5pys8gbgu" path="res://custom/materials/roof1.tres" id="12_4bwrw"]
 [ext_resource type="Material" uid="uid://dqmbtotpsrexn" path="res://custom/materials/floor1.tres" id="12_p1rum"]
 [ext_resource type="PackedScene" uid="uid://d0jhwdrbag7nd" path="res://custom/doors/drawer1.tscn" id="13_hg60a"]
+[ext_resource type="PackedScene" uid="uid://dhmcgak1yxakk" path="res://custom/environments/env_1.tscn" id="19_j62gm"]
+[ext_resource type="PackedScene" uid="uid://bgk3nn11dvyqx" path="res://custom/actions/DisablePlayer.tscn" id="19_vx38e"]
+[ext_resource type="PackedScene" uid="uid://bfdmr12wn6xq6" path="res://custom/actions/DisableFlashlight.tscn" id="20_5aodn"]
+[ext_resource type="PackedScene" uid="uid://rdblw6nmfbye" path="res://custom/actions/EnableFlashlight.tscn" id="21_isuns"]
+[ext_resource type="PackedScene" uid="uid://b05p6ylnfqjgh" path="res://custom/actions/EnablePlayer.tscn" id="22_jep3t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ifj31"]
 albedo_color = Color(0.435294, 0.435294, 0.435294, 1)
@@ -70,23 +75,12 @@ data = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0, 0.5, 
 script = ExtResource("10_xaamx")
 item = "key_gold"
 
-[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_de85y"]
-
-[sub_resource type="Sky" id="Sky_2kf5l"]
-sky_material = SubResource("PhysicalSkyMaterial_de85y")
-
-[sub_resource type="Environment" id="Environment_7rbnf"]
-background_mode = 1
-background_energy_multiplier = 0.0
-sky = SubResource("Sky_2kf5l")
-ambient_light_source = 2
-ambient_light_color = Color(0.0196078, 0.0196078, 0.0196078, 1)
-
 [node name="Level" type="Node3D"]
 script = ExtResource("1_b6as7")
 
 [node name="Player" parent="." instance=ExtResource("2_qt67v")]
-transform = Transform3D(-0.99667, 0, 0.0815383, 0, 1, 0, -0.0815383, 0, -0.99667, 0, 1.63456, 2.74317)
+transform = Transform3D(-0.99667, 0, 0.0815383, 0, 1, 0, -0.0815383, 0, -0.99667, 0, 1.63456, -3.72308)
+jumpheight = 0.0
 
 [node name="Background" type="Node3D" parent="."]
 
@@ -322,12 +316,25 @@ conditions = Array[Resource("res://classes/Condition/obj_Condition.gd")]([SubRes
 
 [node name="UnlockDoor" parent="Doors/Door2/Event" instance=ExtResource("11_cw203")]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_7rbnf")
+[node name="Trigger" parent="." instance=ExtResource("3_5geqw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8012, -3.66711)
+type = 1
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.707107, -0.683013, 0.183013, 0, 0.258819, 0.965926, -0.707107, 0.683013, -0.183013, 7.48319, 9.3785, 0.780573)
-visible = false
-light_color = Color(0.0784314, 0.0980392, 0.160784, 1)
+[node name="Event" type="Node" parent="Trigger"]
+script = ExtResource("10_dw31i")
+
+[node name="DisablePlayer" parent="Trigger/Event" instance=ExtResource("19_vx38e")]
+
+[node name="DisableFlashlight" parent="Trigger/Event" instance=ExtResource("20_5aodn")]
+
+[node name="Dialogue" parent="Trigger/Event" instance=ExtResource("7_b08c7")]
+text = "I need to solve this case."
+wait = true
+
+[node name="EnableFlashlight" parent="Trigger/Event" instance=ExtResource("21_isuns")]
+
+[node name="EnablePlayer" parent="Trigger/Event" instance=ExtResource("22_jep3t")]
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("19_j62gm")]
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfdmr12wn6xq6"]
+
+[ext_resource type="Script" path="res://custom/actions/typ_EventAction_DisableFlashlight.gd" id="1_37tsn"]
+
+[node name="DisableFlashlight" type="Node"]
+script = ExtResource("1_37tsn")

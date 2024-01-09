@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://rdblw6nmfbye"]
+
+[ext_resource type="Script" path="res://custom/actions/typ_EventAction_EnableFlashlight.gd" id="1_c6suo"]
+
+[node name="EnableFlashlight" type="Node"]
+script = ExtResource("1_c6suo")

@@ -1,6 +1,9 @@
 extends Node
 
 
+signal player_entered(player : Character)
+
+
 @onready var dialogue := $dialogue
 
 @onready var inventory := $inventory
