@@ -1,7 +1,7 @@
 extends EventAction
 
-
-@export var time : float = 0.0
+## how the long the effect will take. 0 means instantly.
+@export_range(0.0, 10.0) var time : float = 0.0
 
 
 func Execute():

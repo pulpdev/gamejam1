@@ -1,6 +1,6 @@
 extends EventAction
 
-
+## what item to remove. must be the FILENAME of an 'item' in the 'custom/items' folder.
 @export var item : String
 
 

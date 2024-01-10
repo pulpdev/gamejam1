@@ -11,6 +11,9 @@ signal started
 signal finished
 
 
+## should this action fully finish what it's doing before starting the next one.
+## for example, waiting for the 'Dialogue' action to finish means waiting until the text goes away.
+## most actions will set this automatically to avoid bugs.
 @export var wait : bool
 
 

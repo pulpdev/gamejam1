@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://b0i05q5etgkrr"]
+
+[ext_resource type="Texture2D" uid="uid://c0m4a4hieeqxy" path="res://assets/textures/note_1.png" id="1_cmwc2"]
+[ext_resource type="Texture2D" uid="uid://qo51cateau7b" path="res://assets/textures/cabinet_1.png" id="1_s3lvh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r45u0"]
+specular_mode = 2
+albedo_color = Color(0.623529, 0.337255, 0.0392157, 1)
+albedo_texture = ExtResource("1_s3lvh")
+metallic_specular = 0.0
+roughness = 0.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_35yng"]
+material = SubResource("StandardMaterial3D_r45u0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i61f3"]
+albedo_texture = ExtResource("1_cmwc2")
+uv1_scale = Vector3(0.555, 3.81, 1.02)
+uv1_offset = Vector3(0.05, 0.015, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_03c5r"]
+material = SubResource("StandardMaterial3D_i61f3")
+
+[node name="Book" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.62, 0, 0, 0, 0.11, 0, 0, 0, 0.81, 0, 0, 0)
+mesh = SubResource("BoxMesh_35yng")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.6, 0, 0, 0, 0.075, 0, 0, 0, 0.83, 0.02, 0, 0)
+mesh = SubResource("BoxMesh_03c5r")

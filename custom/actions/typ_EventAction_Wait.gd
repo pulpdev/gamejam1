@@ -1,6 +1,6 @@
 extends EventAction
 
-
+## time to wait. when time's up, next action will execute.
 @export var time : float = 1.0
 
 

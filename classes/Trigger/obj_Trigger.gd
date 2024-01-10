@@ -3,7 +3,19 @@ extends Marker3D
 class_name Trigger
 
 
-enum TYPES {ACTIVATE, TOUCH}
+enum TYPES {
+	
+	## activate when player presses 'e' or 'enter'
+	ACTIVATE, 
+
+	## activate when player touches it. may not work on doors.
+	TOUCH, 
+
+	## triggers once when level is ready
+	AUTO, 
+
+	## can only activate via the 'ActivateTrigger' action
+	MANUAL}
 
 
 signal triggered
@@ -36,7 +48,7 @@ var enabled : bool = true :
 		
 		visible = enabled
 
-
+## set how the trigger will be triggered
 @export var type : TYPES
 
 
@@ -46,6 +58,10 @@ func _init():
 
 
 func _ready():
+
+	if type == TYPES.AUTO:
+
+		Global.level_ready.connect(RunEvents)
 
 	area.body_entered.connect(_on_area_3d_body_entered)
 

@@ -8,6 +8,6 @@ func _init():
 
 func Execute():
 
-	event.trigger.queue_free()
+	event.trigger.enabled = false
 
 	finished.emit()

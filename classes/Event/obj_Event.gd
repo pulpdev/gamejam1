@@ -8,9 +8,8 @@ signal started
 signal finished
 
 
+## list of condition types that must be passed to run
 @export var conditions : Array[Condition]
-
-@export var wait : bool
 
 
 var actions : Array[EventAction]
@@ -57,10 +56,6 @@ func Start():
 
 	started.emit()
 
-	if not wait:
-
-		finished.emit()
-
 
 func Run(startat : int = index):
 
@@ -72,11 +67,9 @@ func Run(startat : int = index):
 
 			if action.wait:
 
-				index += 1
+				index = action.get_index() + 1
 
-				if not action.finished.is_connected(Run):
-
-					action.finished.connect(Run)
+				action.finished.connect(Run)
 
 				action.Run()
 
@@ -88,40 +81,34 @@ func Run(startat : int = index):
 
 			if action.wait:
 
-				if not action.finished.is_connected(OnEventFinished):
-
-					action.finished.connect(OnEventFinished)
+				action.finished.connect(OnEventFinished)
 
 				action.Run()
 
 				return
 
-			else:
+			action.Run()
 
-				action.Run()
-
-				OnEventFinished()
+			OnEventFinished()
 
 
 func OnEventFinished():
 
 	for action in actions:
 
-		if action.finished.is_connected(Run):
+		if action.is_connected("finished", Run):
 
-			action.finished.disconnect(Run)
+			action.disconnect("finished", Run)
 
-		if action.finished.is_connected(OnEventFinished):
+		if action.is_connected("finished", OnEventFinished):
 
-			action.finished.disconnect(OnEventFinished)
+			action.disconnect("finished", OnEventFinished)
 
 	index = 0
 
 	get_tree().current_scene.runningEvents.pop_at(get_tree().current_scene.runningEvents.find(self))
 
-	if wait:
-
-		finished.emit()
+	finished.emit()
 
 
 func _on_child_entered_tree(node):

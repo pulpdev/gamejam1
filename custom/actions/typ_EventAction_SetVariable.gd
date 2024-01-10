@@ -1,10 +1,12 @@
 extends EventAction
 
-
+## what variable to set. see the list of variable names in 'autoloads/Global/_Global.gd'
 @export var variable : String
 
+## the operation to do to the variable
 @export_enum("=", "+", "-") var operation : int = 0
 
+## the value to set, add, or subtract from the variable
 @export_range(0, 999999) var value : int = 0
 
 

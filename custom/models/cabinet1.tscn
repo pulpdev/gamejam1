@@ -1,7 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://cicbgk2makb6i"]
+[gd_scene load_steps=6 format=3 uid="uid://cicbgk2makb6i"]
+
+[ext_resource type="Texture2D" uid="uid://qo51cateau7b" path="res://assets/textures/cabinet_1.png" id="1_rkrym"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ybtoo"]
-albedo_color = Color(0.196078, 0.113725, 0, 1)
+specular_mode = 2
+albedo_texture = ExtResource("1_rkrym")
+metallic_specular = 0.0
+roughness = 0.0
+uv1_scale = Vector3(2.815, 2.015, 1)
+uv1_offset = Vector3(1.09, -1.015, 0)
 
 [sub_resource type="BoxMesh" id="BoxMesh_msx1m"]
 material = SubResource("StandardMaterial3D_ybtoo")

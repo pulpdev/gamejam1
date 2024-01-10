@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3ymeqgx2lr2m"]
+
+[ext_resource type="Script" path="res://classes/Trigger/obj_Trigger.gd" id="1_pnpw4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ckdds"]
+
+[node name="Trigger" type="Marker3D"]
+script = ExtResource("1_pnpw4")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_ckdds")

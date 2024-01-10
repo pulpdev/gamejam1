@@ -1,6 +1,7 @@
-extends Condition
+#extends Condition
 
-class_name ConditionDoor
+##class_name ConditionDoor
 
+##depricated
 
-@export var mustBeLocked : bool
+#@export var mustBeLocked : bool

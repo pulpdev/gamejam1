@@ -1,10 +1,9 @@
 extends Node
 
 
-const DEFAULT_AMB_DB : float = -10.0
-
-
 signal player_entered(player : Character)
+
+signal level_ready
 
 
 @onready var dialogue := $dialogue
@@ -13,7 +12,12 @@ signal player_entered(player : Character)
 
 @onready var vfx := $vfx
 
+@onready var scene := $scene
 
+@onready var sfx = $sfx
+
+
+## list of global game variables. use these to control game progression with the 'ConditionVariable' resource.
 @export var variables : Dictionary = {
 
 	"plot" : 0
@@ -24,3 +28,6 @@ signal player_entered(player : Character)
 func _ready():
 
 	DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_CAPTURED)
+
+
+

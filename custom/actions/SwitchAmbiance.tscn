@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://tnife2h3rdxw"]
+
+[ext_resource type="Script" path="res://custom/actions/typ_EventAction_SwitchAmbiance.gd" id="1_7btgn"]
+
+[node name="SwitchAmbiance" type="Node"]
+script = ExtResource("1_7btgn")

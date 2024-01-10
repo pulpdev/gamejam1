@@ -4,8 +4,8 @@ extends EventAction
 func _init():
 	
 	wait = true
-	
-	
+
+
 func Execute():
 	
 	if get_tree().current_scene.player:

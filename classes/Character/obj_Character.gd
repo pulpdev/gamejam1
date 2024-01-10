@@ -9,13 +9,14 @@ class_name Character
 
 @onready var footsteps := $Footsteps
 
-
+## self explanitory
 @export var speed : float = 3.0
 
+## self explanitory
 @export var jumpheight : float = 4.0
 
 
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") + 3
 
 var flashlighting : bool = false:
 
@@ -39,9 +40,10 @@ var flashlighting : bool = false:
 			
 			pivot_camera.flashlight.light_color = Color(0,0,0,0)
 
-
+## enable or disable player movement
 @export var enableInput : bool = true
 
+## enable or disable the flashlight
 @export var canFlashlight : bool = true
 
 
@@ -57,15 +59,56 @@ var vector_input : Vector2:
 	get:
 
 		return Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-
+		
+		
+var crouching : bool :
+	
+	set(c):
+		
+		crouching = c
+		
+		if crouching:
+			
+			var t = create_tween()
+			
+			t.tween_property(
+				
+				pivot_camera,
+				
+				"position",
+				
+				pivot_camera.init_position - Vector3(0,0.75,0),
+				
+				0.1
+			)
+			
+			footsteps.timer.wait_time = 1.25 / speed
+			
+		else:
+			
+			var t = create_tween()
+			
+			t.tween_property(
+				
+				pivot_camera,
+				
+				"position",
+				
+				pivot_camera.init_position,
+				
+				0.1
+			)
+			footsteps.timer.wait_time = 1.25 / speed
 
 func _ready():
 
-	footsteps.timer.wait_time = speed / 6.0
+	footsteps.timer.wait_time = 1.25 / speed
 
 	Global.player_entered.emit(self)
 
 	flashlighting = false
+
+	pivot_camera.vector_view.y = global_rotation.y
 
 
 func _unhandled_input(event):
@@ -81,9 +124,13 @@ func _physics_process(delta):
 
 		move(Vector3(vector_input.x, vector_input.y, 0), delta)
 
+	else:
+
+		move(Vector3.ZERO, delta)
+
 	pivot_model.rotation.y = pivot_camera.rotation.y
 
-	if not vector_input == Vector2.ZERO and is_on_floor():
+	if not vector_input == Vector2.ZERO and enableInput and is_on_floor():
 
 		if footsteps.timer.is_stopped():
 
@@ -98,6 +145,19 @@ func _physics_process(delta):
 		footsteps.landPlayer.play()
 
 		footsteps.playJumpLandSound = false
+		
+		
+	if Input.is_action_pressed("action_crouch"):
+
+		crouching = true
+		
+		speed = 1
+		
+	else:
+		
+		crouching = false
+		
+		speed = 3
 
 
 func _process(delta):
@@ -124,7 +184,6 @@ func move(dir : Vector3, delta):
 			velocity.x = lerp(velocity.x, 0.0, 0.5)
 
 			velocity.z = lerp(velocity.z, 0.0, 0.5)
-
 
 	if not is_on_floor():
 

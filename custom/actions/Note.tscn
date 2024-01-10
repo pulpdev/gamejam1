@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://l0h3hpbpgqdb"]
+
+[ext_resource type="Script" path="res://custom/actions/typ_EventAction_Note.gd" id="1_fewxl"]
+
+[node name="Note" type="Node"]
+script = ExtResource("1_fewxl")

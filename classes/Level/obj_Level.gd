@@ -2,25 +2,14 @@ extends Node3D
 
 class_name Level
 
-
+## player ref. automatically gets set.
 @export var player : Character
 
+## see which events are running.
 @export var runningEvents : Array[Event]
 
-@export var ambiance : AudioStreamWAV :
-
-	set(amb):
-
-		ambiance = amb
-		
-		if ambiancePlayer:
-
-			ambiancePlayer.stream = ambiance
-	
-			ambiancePlayer.play()
-
-
-var ambiancePlayer : AudioStreamPlayer
+## set current ambiance sound.
+@export var ambiance : AudioStreamWAV
 
 
 func _init():
@@ -34,15 +23,11 @@ func _init():
 
 func _ready():
 
-	ambiancePlayer = AudioStreamPlayer.new()
+	Global.sfx.ambiance = ambiance
 
-	ambiancePlayer.stream = ambiance
-
-	ambiancePlayer.volume_db = -10
-
-	add_child(ambiancePlayer)
-
-	ambiancePlayer.play()
+	Global.level_ready.emit()
+	
+	Global.sfx.music
 
 
 func _on_child_entered_tree(node):

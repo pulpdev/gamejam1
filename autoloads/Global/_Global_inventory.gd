@@ -3,6 +3,7 @@ extends Node
 
 const ITEM_DIR : String = "res://custom/items/"
 
+## list of items the player has. remove and add items via the 'RemoveItem' and 'AddItem' actions.
 @export var items : Array[Item]
 
 
@@ -49,7 +50,7 @@ func AddItem(iname : String):
 			items.push_back(x)
 
 			return
-	
+
 	printerr("item not found, ", iname, ", didnt add")
 
 

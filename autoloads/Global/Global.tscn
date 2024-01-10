@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://cc0gw84mkwkq8"]
+[gd_scene load_steps=8 format=3 uid="uid://cc0gw84mkwkq8"]
 
 [ext_resource type="Script" path="res://autoloads/Global/_Global.gd" id="1_rodys"]
 [ext_resource type="Script" path="res://autoloads/Global/_Global_debug.gd" id="2_4em00"]
 [ext_resource type="Script" path="res://autoloads/Global/_Global_dialogue.gd" id="3_c7xcf"]
 [ext_resource type="Script" path="res://autoloads/Global/_Global_inventory.gd" id="4_2p33t"]
 [ext_resource type="Script" path="res://autoloads/Global/_Global_vfx.gd" id="5_tl8d7"]
+[ext_resource type="Script" path="res://autoloads/Global/_Global_scene.gd" id="6_an4eb"]
+[ext_resource type="Script" path="res://autoloads/Global/_Global_sfx.gd" id="7_c647i"]
 
 [node name="Global" type="Node"]
 script = ExtResource("1_rodys")
@@ -47,4 +49,15 @@ color = Color(0, 0, 0, 0)
 
 [node name="fadetimer" type="Timer" parent="vfx"]
 
+[node name="scene" type="Node" parent="."]
+script = ExtResource("6_an4eb")
+
+[node name="sfx" type="Node" parent="."]
+script = ExtResource("7_c647i")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="sfx"]
+
+[node name="AmbiancePlayer" type="AudioStreamPlayer" parent="sfx"]
+
 [connection signal="timeout" from="dialogue/Timer" to="dialogue" method="_on_timer_timeout"]
+[connection signal="finished" from="sfx/MusicPlayer" to="sfx" method="_on_music_player_finished"]

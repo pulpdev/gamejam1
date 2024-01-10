@@ -15,6 +15,8 @@ var vector_view : Vector3
 
 var vector_mouse : Vector2
 
+@onready var init_position : Vector3 = position
+
 
 func _input(event):
 
@@ -52,6 +54,10 @@ func ActivateTriggers(triggers : Array):
 		if not thing.owner is Trigger:
 			
 			triggers.pop_at(triggers.find(thing))
+			
+		if thing.owner is Trigger and thing.owner.type == Trigger.TYPES.TOUCH:
+			
+			triggers.pop_at(triggers.find(thing))
 
 	if triggers.size() == 0:
 
@@ -65,7 +71,7 @@ func ActivateTriggers(triggers : Array):
 
 			trigger.RunEvents()
 
-			if trigger is Door and not trigger.locked:
+			if trigger is Door:
 
 				if not trigger.canClose:
 

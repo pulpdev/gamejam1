@@ -30,11 +30,11 @@ func FadeIn(time : float = 0.0):
 
 
 func FadeOut(time : float):
-	
+
 	if time <= 0.0:
 
 		fade.color = Color(0,0,0,1)
-		
+
 		return
 
 	var t = create_tween()
@@ -50,3 +50,8 @@ func FadeOut(time : float):
 		time
 
 	)
+
+
+func ClearEffects():
+
+	fade.color = Color(0,0,0,0)

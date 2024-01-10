@@ -2,7 +2,7 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://dv5dg7gxx4fxo"
+uid="uid://d2cqhlotx7pwi"
 path="res://.godot/imported/amb_rain_1.wav-43b0ed55c30b026edd76d478ca576e2b.sample"
 
 [deps]
@@ -21,4 +21,4 @@ edit/normalize=false
 edit/loop_mode=2
 edit/loop_begin=0
 edit/loop_end=-1
-compress/mode=0
+compress/mode=1

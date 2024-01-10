@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://b48sba4qfm4ab"]
+
+[ext_resource type="Script" path="res://classes/Trigger/Door/obj_Trigger_Door.gd" id="1_6lhb8"]
+[ext_resource type="Texture2D" uid="uid://qo51cateau7b" path="res://assets/textures/cabinet_1.png" id="2_tvwnm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8udml"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jct7s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5fo3w"]
+albedo_texture = ExtResource("2_tvwnm")
+uv1_scale = Vector3(3, 2.005, 2)
+uv1_offset = Vector3(-0.995, 0.005, 0)
+uv2_scale = Vector3(1.535, 1, 1)
+uv2_offset = Vector3(0.035, 0, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_e4x4q"]
+lightmap_size_hint = Vector2i(14, 21)
+material = SubResource("StandardMaterial3D_5fo3w")
+add_uv2 = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g7jsh"]
+albedo_color = Color(0.266667, 0.266667, 0.266667, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7tpgv"]
+material = SubResource("StandardMaterial3D_g7jsh")
+
+[node name="Door" type="Marker3D"]
+script = ExtResource("1_6lhb8")
+canClose = true
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 2.5, 0, 0, 0, 1.25, 0, 0, -0.622334)
+
+[node name="Area3D" type="Area3D" parent="Node3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Area3D"]
+shape = SubResource("BoxShape3D_8udml")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_jct7s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+mesh = SubResource("BoxMesh_e4x4q")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(-6.55671e-09, 0.765, 0, -0.15, -3.34392e-08, 0, 0, 0, 0.09, 0, 0, -0.383139)
+mesh = SubResource("CylinderMesh_7tpgv")

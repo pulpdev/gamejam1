@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5hlfa23h8o7v"]
+
+[ext_resource type="Script" path="res://custom/actions/typ_EventAction_ActivateTrigger.gd" id="1_2ir6g"]
+
+[node name="ActivateTrigger" type="Node"]
+script = ExtResource("1_2ir6g")

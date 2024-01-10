@@ -1,6 +1,8 @@
-extends Resource
-
-class_name EventHandler
-
+#extends Resource
+#
+#class_name EventHandler
+#
+#depricated
+#
 
 

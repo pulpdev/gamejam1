@@ -2,7 +2,7 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://lo61bnt1m24w"
+uid="uid://bj3mruxmyipx2"
 path="res://.godot/imported/amb_dark_2.wav-8e78fd8ca7deb17c4ac833031534e5ba.sample"
 
 [deps]
@@ -21,4 +21,4 @@ edit/normalize=false
 edit/loop_mode=2
 edit/loop_begin=0
 edit/loop_end=-1
-compress/mode=0
+compress/mode=1

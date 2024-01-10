@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://xse7j48uhk14"]
+
+[ext_resource type="Texture2D" uid="uid://c0m4a4hieeqxy" path="res://assets/textures/note_1.png" id="1_0afmh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rjh4m"]
+specular_mode = 2
+albedo_color = Color(0.843137, 0.831373, 0.803922, 1)
+albedo_texture = ExtResource("1_0afmh")
+metallic_specular = 0.0
+roughness = 0.0
+uv1_scale = Vector3(3.08, 1.995, 1)
+uv1_offset = Vector3(-0.095, 0.01, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dpypj"]
+material = SubResource("StandardMaterial3D_rjh4m")
+
+[node name="Note" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.305, 0, 0, 0, 0.015, 0, 0, 0, 0.43, 0, 0, 0)
+mesh = SubResource("BoxMesh_dpypj")
