@@ -6,8 +6,6 @@ class_name Door
 enum OPEN_TYPES {SWING, PUSH}
 
 
-@onready var model := $Node3D
-
 ## door starts out locked and must be unlocked via the 'UnlockDoor' action
 @export var locked : bool
 
@@ -57,9 +55,9 @@ var lockedPlayer : AudioStreamPlayer3D
 		
 		if reverseOpen:
 			
-			return initPosition - transform.basis.x
+			return initPosition - transform.basis.x / 3
 			
-		return initPosition + transform.basis.x
+		return initPosition + transform.basis.x / 3
 
 
 @onready var initRotation : Vector3 = rotation
@@ -164,8 +162,8 @@ func Open():
 					
 					endPosition,
 					
-					1
-				)
+					0.5
+				).set_trans(Tween.TRANS_SPRING)
 				
 				opened = true
 				
@@ -181,7 +179,7 @@ func Open():
 					
 					initPosition,
 					
-					1
-				)
+					0.5
+				).set_trans(Tween.TRANS_SPRING)
 		
 				opened = false

@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmeceoeacctve"]
+
+[ext_resource type="Script" path="res://classes/Trigger/Door/obj_Trigger_Door.gd" id="1_2lbyo"]
+[ext_resource type="ArrayMesh" uid="uid://dylk3o63f0c00" path="res://custom/models/new_drawer_1.obj" id="2_m2tn4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u5mds"]
+size = Vector3(0.422321, 0.0132962, 0.42083)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7smsn"]
+size = Vector3(0.00367737, 0.133415, 0.45166)
+
+[node name="Drawer" type="Marker3D"]
+script = ExtResource("1_2lbyo")
+canClose = true
+openType = 1
+
+[node name="blocker" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="blocker"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00451469, 0.0110052, 0.00144577)
+shape = SubResource("BoxShape3D_u5mds")
+
+[node name="NewDrawer1" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+mesh = ExtResource("2_m2tn4")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.246315, 0.0743294, 0.000732422)
+shape = SubResource("BoxShape3D_7smsn")

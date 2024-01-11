@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cedrb7phorswq"]
+[gd_scene load_steps=5 format=3 uid="uid://cedrb7phorswq"]
 
 [ext_resource type="PackedScene" uid="uid://teia3swc1mlk" path="res://classes/Trigger/Trigger.tscn" id="1_qxt7o"]
 [ext_resource type="PackedScene" uid="uid://wup87kat5xaw" path="res://custom/models/key1.tscn" id="2_v4qtw"]
 [ext_resource type="Script" path="res://classes/Event/obj_Event.gd" id="3_gus07"]
-[ext_resource type="PackedScene" uid="uid://cox7dsrtm74ih" path="res://custom/actions/AddItem.tscn" id="4_lyvuu"]
 [ext_resource type="PackedScene" uid="uid://buju1jnvj65wh" path="res://custom/actions/DisableTrigger.tscn" id="5_h8lpd"]
 
 [node name="Key" instance=ExtResource("1_qxt7o")]
@@ -15,6 +14,4 @@ transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 [node name="Event" type="Node" parent="." index="2"]
 script = ExtResource("3_gus07")
 
-[node name="AddItem" parent="Event" index="0" instance=ExtResource("4_lyvuu")]
-
-[node name="DisableTrigger" parent="Event" index="1" instance=ExtResource("5_h8lpd")]
+[node name="DisableTrigger" parent="Event" index="0" instance=ExtResource("5_h8lpd")]

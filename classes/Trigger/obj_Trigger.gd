@@ -23,17 +23,7 @@ signal triggered
 
 var events : Array[Event]
 
-@onready var area : Area3D :
-	
-	get:
-		
-		if self is Door:
-			
-			return $Node3D/Area3D
-			
-		else:
-			
-			return $Area3D
+@onready var area : Area3D = $Area3D
 
 
 var index : int = 0

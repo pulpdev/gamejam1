@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://3v55d0i43ka2"
+path="res://.godot/imported/door_004.obj-c1caf7f57a7e13b3de49e7a403a2462b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/door_004.obj-c1caf7f57a7e13b3de49e7a403a2462b.mesh"]
+
+source_file="res://custom/models/door_004.obj"
+dest_files=["res://.godot/imported/door_004.obj-c1caf7f57a7e13b3de49e7a403a2462b.mesh", "res://.godot/imported/door_004.obj-c1caf7f57a7e13b3de49e7a403a2462b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

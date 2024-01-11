@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://6pcdo352vt7h"
+path="res://.godot/imported/wall_blue_dorrway_1.obj-d7d3d1854382bc7be3a2d3b43109e4bb.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wall_blue_dorrway_1.obj-d7d3d1854382bc7be3a2d3b43109e4bb.mesh"]
+
+source_file="res://custom/models/wall_blue_dorrway_1.obj"
+dest_files=["res://.godot/imported/wall_blue_dorrway_1.obj-d7d3d1854382bc7be3a2d3b43109e4bb.mesh", "res://.godot/imported/wall_blue_dorrway_1.obj-d7d3d1854382bc7be3a2d3b43109e4bb.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d03unlxx0k3bl"
+path="res://.godot/imported/wall_blue_fireplace.obj-51849c65ff26d3524f314f77c02b77ce.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wall_blue_fireplace.obj-51849c65ff26d3524f314f77c02b77ce.mesh"]
+
+source_file="res://custom/models/wall_blue_fireplace.obj"
+dest_files=["res://.godot/imported/wall_blue_fireplace.obj-51849c65ff26d3524f314f77c02b77ce.mesh", "res://.godot/imported/wall_blue_fireplace.obj-51849c65ff26d3524f314f77c02b77ce.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

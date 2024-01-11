@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://1j7a21dg6v4k"]
+
+[ext_resource type="ArrayMesh" uid="uid://cokxv0181crpi" path="res://custom/models/wall_blue_long_2.obj" id="1_etib6"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_makvt"]
+data = PackedVector3Array(-1.5, 0, -0.075, 1.5, 0, -0.075, -1.5, 3, -0.075, -1.5, 3, -0.075, 1.5, 0, -0.075, 1.5, 3, -0.075, 1.5, 0, 0.075, -1.5, 0, 0.075, 1.5, 3, 0.075, 1.5, 3, 0.075, -1.5, 0, 0.075, -1.5, 3, 0.075)
+
+[node name="WallBlueLong2" type="MeshInstance3D"]
+mesh = ExtResource("1_etib6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_makvt")

@@ -1,15 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://bi0ensk61bpv5"]
+[gd_scene load_steps=12 format=3 uid="uid://bi0ensk61bpv5"]
 
 [ext_resource type="Script" path="res://classes/Character/obj_Character.gd" id="1_22fxh"]
 [ext_resource type="Script" path="res://classes/Character/cmp_Character_CameraPivot.gd" id="2_udrru"]
 [ext_resource type="Script" path="res://classes/Character/cmp_Character_Footsteps.gd" id="3_iwkfl"]
 [ext_resource type="AudioStream" uid="uid://b3jvrhvmrx24q" path="res://assets/sounds/jump_2.wav" id="4_4l5st"]
 [ext_resource type="AudioStream" uid="uid://cpl8fru0nfedu" path="res://assets/sounds/land_2.wav" id="5_an4xp"]
+[ext_resource type="AudioStream" uid="uid://b63ehaaoi5kbs" path="res://assets/sounds/flashlight_2.wav" id="6_hn3e3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bmk0q"]
+radius = 0.25
+height = 1.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u37tn"]
-size = Vector3(0.1, 0.1, 1.5)
+size = Vector3(0.0412476, 0.0423096, 1.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ifp0i"]
 albedo_color = Color(1, 0.352941, 1, 1)
@@ -22,6 +25,11 @@ size = Vector3(1, 2, 1)
 size = Vector3(0.21, 0.16, 1)
 
 [node name="Character" type="CharacterBody3D"]
+wall_min_slide_angle = 0.0
+floor_stop_on_slope = false
+floor_block_on_wall = false
+floor_max_angle = 1.0472
+floor_snap_length = 0.0
 script = ExtResource("1_22fxh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -36,7 +44,7 @@ script = ExtResource("2_udrru")
 [node name="UseArea" type="Area3D" parent="CameraPivot"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CameraPivot/UseArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.734642)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00307007, 0.0288452, -0.734642)
 shape = SubResource("BoxShape3D_u37tn")
 
 [node name="Flashlight" type="SpotLight3D" parent="CameraPivot"]
@@ -69,5 +77,10 @@ max_polyphony = 2
 
 [node name="Timer" type="Timer" parent="Footsteps"]
 process_callback = 0
+
+[node name="FlashlightSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_hn3e3")
+max_db = 6.0
+pitch_scale = 4.0
 
 [connection signal="timeout" from="Footsteps/Timer" to="Footsteps" method="_on_timer_timeout"]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1ilhb0p13wj7"]
+
+[ext_resource type="ArrayMesh" uid="uid://cetiuaknmhsm2" path="res://custom/models/prop_matress.obj" id="1_ibrwa"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_amg5i"]
+data = PackedVector3Array(-0.6376, 0.1667, 0.9524, -0.6376, 0, 0.9524, -0.6376, 0.1667, -0.9524, -0.6376, 0.1667, -0.9524, -0.6376, 0, 0.9524, -0.6376, 0, -0.9524, -0.6376, 0.1667, -0.9524, -0.6376, 0, -0.9524, 0.6376, 0.1667, -0.9524, 0.6376, 0.1667, -0.9524, -0.6376, 0, -0.9524, 0.6376, 0, -0.9524, 0.6376, 0.1667, -0.9524, 0.6376, 0, -0.9524, 0.6376, 0.1667, 0.9524, 0.6376, 0.1667, 0.9524, 0.6376, 0, -0.9524, 0.6376, 0, 0.9524, 0.6376, 0.1667, 0.9524, 0.6376, 0, 0.9524, -0.6376, 0.1667, 0.9524, -0.6376, 0.1667, 0.9524, 0.6376, 0, 0.9524, -0.6376, 0, 0.9524, 0.6376, 0, -0.9524, -0.6376, 0, -0.9524, 0.6376, 0, 0.9524, 0.6376, 0, 0.9524, -0.6376, 0, -0.9524, -0.6376, 0, 0.9524, -0.6376, 0.1667, -0.9524, 0.6376, 0.1667, -0.9524, -0.6376, 0.1667, 0.9524, -0.6376, 0.1667, 0.9524, 0.6376, 0.1667, -0.9524, 0.6376, 0.1667, 0.9524)
+
+[node name="PropMatress" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, -1)
+mesh = ExtResource("1_ibrwa")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_amg5i")

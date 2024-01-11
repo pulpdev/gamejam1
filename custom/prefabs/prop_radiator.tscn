@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyg0kya2erqwa"]
+
+[ext_resource type="ArrayMesh" uid="uid://cvsrn2gskxipq" path="res://custom/models/prop_radiator.obj" id="1_65dsb"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_tsfmt"]
+data = PackedVector3Array(-0.657, 0.3197, 0.1035, -0.657, -0.424, 0.1035, -0.657, 0.3197, -0.0119, -0.657, 0.3197, -0.0119, -0.657, -0.424, 0.1035, -0.657, -0.424, -0.0119, -0.657, 0.3197, -0.0119, -0.657, -0.424, -0.0119, 0.657, 0.3197, -0.0119, 0.657, 0.3197, -0.0119, -0.657, -0.424, -0.0119, 0.657, -0.424, -0.0119, 0.657, 0.3197, -0.0119, 0.657, -0.424, -0.0119, 0.657, 0.3197, 0.1035, 0.657, 0.3197, 0.1035, 0.657, -0.424, -0.0119, 0.657, -0.424, 0.1035, 0.657, 0.3197, 0.1035, 0.657, -0.424, 0.1035, -0.657, 0.3197, 0.1035, -0.657, 0.3197, 0.1035, 0.657, -0.424, 0.1035, -0.657, -0.424, 0.1035, 0.657, -0.424, -0.0119, -0.657, -0.424, -0.0119, 0.657, -0.424, 0.1035, 0.657, -0.424, 0.1035, -0.657, -0.424, -0.0119, -0.657, -0.424, 0.1035, -0.657, 0.3197, -0.0119, 0.657, 0.3197, -0.0119, -0.657, 0.3197, 0.1035, -0.657, 0.3197, 0.1035, 0.657, 0.3197, -0.0119, 0.657, 0.3197, 0.1035)
+
+[node name="PropRadiator" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -1)
+mesh = ExtResource("1_65dsb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_tsfmt")

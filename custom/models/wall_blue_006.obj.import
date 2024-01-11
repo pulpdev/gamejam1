@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://duu6sviw30e5k"
+path="res://.godot/imported/wall_blue_006.obj-0234e45a84577e23ccb22a2226c341ef.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wall_blue_006.obj-0234e45a84577e23ccb22a2226c341ef.mesh"]
+
+source_file="res://custom/models/wall_blue_006.obj"
+dest_files=["res://.godot/imported/wall_blue_006.obj-0234e45a84577e23ccb22a2226c341ef.mesh", "res://.godot/imported/wall_blue_006.obj-0234e45a84577e23ccb22a2226c341ef.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

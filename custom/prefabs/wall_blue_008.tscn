@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3l877rp4a1b0"]
+
+[ext_resource type="ArrayMesh" uid="uid://bydm44rmc7txu" path="res://custom/models/wall_blue_007.obj" id="1_4chxa"]
+[ext_resource type="ArrayMesh" uid="uid://djdcwd883pts5" path="res://custom/models/wall_blue_009.obj" id="2_qbfnf"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_tqq1p"]
+data = PackedVector3Array(1.35, 2.0004, 0, 1.5, 3, 0, 1.35, 0, 0, 1.35, 0, 0, 1.5, 3, 0, 1.5, 0, 0, -1.5, 3, 0, -1.3491, 2.0004, 0, -1.5, 0, 0, -1.5, 0, 0, -1.3491, 2.0004, 0, -1.3491, 0, 0, 0.8102, 2.1003, 0, 0.9, 3, 0, 1.35, 2.0004, 0, 1.35, 2.0004, 0, 0.9, 3, 0, 1.5, 3, 0, -1.3491, 2.0004, 0, -1.5, 3, 0, -0.8093, 2.1003, 0, -0.8093, 2.1003, 0, -1.5, 3, 0, -0.9, 3, 0, -0.8093, 2.1003, 0, -0.9, 3, 0, -0.2694, 2.1504, 0, -0.2694, 2.1504, 0, -0.9, 3, 0, -0.3, 3, 0, -0.2694, 2.1504, 0, -0.3, 3, 0, 0.2704, 2.1504, 0, 0.2704, 2.1504, 0, -0.3, 3, 0, 0.3, 3, 0, 0.2704, 2.1504, 0, 0.3, 3, 0, 0.8102, 2.1003, 0, 0.8102, 2.1003, 0, 0.3, 3, 0, 0.9, 3, 0)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gxifq"]
+data = PackedVector3Array(-0.8092, 2.1004, -0.2, -0.8092, 2.1004, 0, -0.2694, 2.1504, -0.2, -0.2694, 2.1504, -0.2, -0.8092, 2.1004, 0, -0.2694, 2.1504, 0, 0.2704, 2.1504, -0.2, 0.2704, 2.1504, 0, 0.8102, 2.1004, -0.2, 0.8102, 2.1004, -0.2, 0.2704, 2.1504, 0, 0.8102, 2.1004, 0, 1.3501, 2.0004, -0.2, 1.3501, 2.0004, 0, 1.3501, 0, -0.2, 1.3501, 0, -0.2, 1.3501, 2.0004, 0, 1.3501, 0, 0, -1.3491, 2.0004, -0.2, -1.3491, 2.0004, 0, -0.8092, 2.1004, -0.2, -0.8092, 2.1004, -0.2, -1.3491, 2.0004, 0, -0.8092, 2.1004, 0, -0.2694, 2.1504, -0.2, -0.2694, 2.1504, 0, 0.2704, 2.1504, -0.2, 0.2704, 2.1504, -0.2, -0.2694, 2.1504, 0, 0.2704, 2.1504, 0, 0.8102, 2.1004, -0.2, 0.8102, 2.1004, 0, 1.3501, 2.0004, -0.2, 1.3501, 2.0004, -0.2, 0.8102, 2.1004, 0, 1.3501, 2.0004, 0, -1.3491, 0, -0.2, -1.3491, 0, 0, -1.3491, 2.0004, -0.2, -1.3491, 2.0004, -0.2, -1.3491, 0, 0, -1.3491, 2.0004, 0)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_6aqnj"]
+data = PackedVector3Array(1.35, 2.0004, 0, 1.5, 3, 0, 1.35, 0, 0, 1.35, 0, 0, 1.5, 3, 0, 1.5, 0, 0, -1.5, 3, 0, -1.3491, 2.0004, 0, -1.5, 0, 0, -1.5, 0, 0, -1.3491, 2.0004, 0, -1.3491, 0, 0, 0.8102, 2.1003, 0, 0.9, 3, 0, 1.35, 2.0004, 0, 1.35, 2.0004, 0, 0.9, 3, 0, 1.5, 3, 0, -1.3491, 2.0004, 0, -1.5, 3, 0, -0.8093, 2.1003, 0, -0.8093, 2.1003, 0, -1.5, 3, 0, -0.9, 3, 0, -0.8093, 2.1003, 0, -0.9, 3, 0, -0.2694, 2.1504, 0, -0.2694, 2.1504, 0, -0.9, 3, 0, -0.3, 3, 0, -0.2694, 2.1504, 0, -0.3, 3, 0, 0.2704, 2.1504, 0, 0.2704, 2.1504, 0, -0.3, 3, 0, 0.3, 3, 0, 0.2704, 2.1504, 0, 0.3, 3, 0, 0.8102, 2.1003, 0, 0.8102, 2.1003, 0, 0.3, 3, 0, 0.9, 3, 0)
+
+[node name="WallBlue008" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -14)
+mesh = ExtResource("1_4chxa")
+metadata/_edit_group_ = true
+
+[node name="WallBlue010" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -0.2)
+mesh = ExtResource("1_4chxa")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WallBlue010"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallBlue010/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_tqq1p")
+
+[node name="WallBlue009" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_qbfnf")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="WallBlue009"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WallBlue009/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_gxifq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_6aqnj")

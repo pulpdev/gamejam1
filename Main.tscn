@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1f21j6dfu3ie"]
+
+[ext_resource type="Script" path="res://_Main.gd" id="1_mbwp7"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_mbwp7")
+startingLevel = "test_lvl"

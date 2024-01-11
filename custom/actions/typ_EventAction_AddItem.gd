@@ -29,6 +29,7 @@ func Execute():
 		func():
 
 			player.queue_free()
+
 	)
 
 	player.play()

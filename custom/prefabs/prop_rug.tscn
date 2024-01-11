@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4aro7d4ap2hm"]
+
+[ext_resource type="ArrayMesh" uid="uid://diqdqwme7kkrm" path="res://custom/models/prop_rug.obj" id="1_pjp5u"]
+
+[node name="PropRug" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -1.6)
+mesh = ExtResource("1_pjp5u")

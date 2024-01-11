@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmhxiejq8troj"]
+
+[sub_resource type="Environment" id="Environment_vflvp"]
+background_mode = 1
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.0
+fog_enabled = true
+fog_light_color = Color(0.0235294, 0.0313726, 0.0745098, 1)
+fog_density = 0.2
+
+[node name="EnvironmentNightFoggy" type="WorldEnvironment"]
+environment = SubResource("Environment_vflvp")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, 0.683013, -0.183013, 0, 0.258819, 0.965926, 0.707107, -0.683013, 0.183013, 0, 0, 0)
+light_color = Color(0.356863, 0.419608, 0.658824, 1)
+light_energy = 0.5
+shadow_enabled = true

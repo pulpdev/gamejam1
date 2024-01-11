@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://4nb5stxfctby"
+path="res://.godot/imported/prop_nightstand.obj-db05b3085a26c17a61af2040388ab7af.mesh"
+
+[deps]
+
+files=["res://.godot/imported/prop_nightstand.obj-db05b3085a26c17a61af2040388ab7af.mesh"]
+
+source_file="res://custom/models/prop_nightstand.obj"
+dest_files=["res://.godot/imported/prop_nightstand.obj-db05b3085a26c17a61af2040388ab7af.mesh", "res://.godot/imported/prop_nightstand.obj-db05b3085a26c17a61af2040388ab7af.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

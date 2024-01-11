@@ -59,6 +59,10 @@ func ActivateTriggers(triggers : Array):
 			
 			triggers.pop_at(triggers.find(thing))
 
+		if thing.name == "blocker":
+
+			triggers.pop_at(triggers.find(thing))
+
 	if triggers.size() == 0:
 
 		return

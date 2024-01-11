@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://vsjfqh5o8h35"]
+
+[ext_resource type="ArrayMesh" uid="uid://la1fuejrrc3x" path="res://custom/models/floor_wood_4.obj" id="1_8f3fl"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_he311"]
+data = PackedVector3Array(0.75, 0, 0.75, -0.75, 0, 0.75, 0.75, 0, -0.75, 0.75, 0, -0.75, -0.75, 0, 0.75, -0.75, 0, -0.75)
+
+[node name="FloorWood4" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.24, 1, 1.895)
+mesh = ExtResource("1_8f3fl")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_he311")

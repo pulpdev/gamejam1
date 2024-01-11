@@ -1,11 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://b48sba4qfm4ab"]
+[gd_scene load_steps=8 format=3 uid="uid://b48sba4qfm4ab"]
 
 [ext_resource type="Script" path="res://classes/Trigger/Door/obj_Trigger_Door.gd" id="1_6lhb8"]
 [ext_resource type="Texture2D" uid="uid://qo51cateau7b" path="res://assets/textures/cabinet_1.png" id="2_tvwnm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8udml"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_jct7s"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5fo3w"]
 albedo_texture = ExtResource("2_tvwnm")
@@ -36,11 +34,6 @@ transform = Transform3D(0.1, 0, 0, 0, 2.5, 0, 0, 0, 1.25, 0, 0, -0.622334)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Area3D"]
 shape = SubResource("BoxShape3D_8udml")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/StaticBody3D"]
-shape = SubResource("BoxShape3D_jct7s")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
 mesh = SubResource("BoxMesh_e4x4q")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://buopvb1ge7iga"]
+[gd_scene load_steps=10 format=3 uid="uid://buopvb1ge7iga"]
 
 [ext_resource type="Script" path="res://classes/Trigger/Door/obj_Trigger_Door.gd" id="1_08h23"]
 [ext_resource type="Texture2D" uid="uid://ck6afm40x8aej" path="res://assets/textures/door_1.png" id="2_smvvv"]
+[ext_resource type="PackedScene" uid="uid://di3vt3t881u5w" path="res://custom/models/door_001.glb" id="3_u162y"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r1tpn"]
 
@@ -42,6 +43,7 @@ shape = SubResource("BoxShape3D_r1tpn")
 shape = SubResource("BoxShape3D_jct7s")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+visible = false
 mesh = SubResource("BoxMesh_e4x4q")
 skeleton = NodePath("../..")
 
@@ -49,3 +51,6 @@ skeleton = NodePath("../..")
 transform = Transform3D(-2.40413e-09, 1.46, 0, -0.055, -6.38186e-08, 0, 0, 0, 0.1, 0, 0, -0.383139)
 visible = false
 mesh = SubResource("CylinderMesh_7tpgv")
+
+[node name="door_001" parent="Node3D" instance=ExtResource("3_u162y")]
+transform = Transform3D(-1.74846e-08, 0, 4.595, 0, 0.22, 0, -0.4, 0, -2.00854e-07, 0, 0.000132287, 0)
