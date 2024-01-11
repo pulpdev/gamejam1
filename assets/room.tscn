@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7yqwkbolyqcq"]
+
+[ext_resource type="Texture2D" uid="uid://c3r781ixwsiqc" path="res://import/Trailer_Park/Textures/wallpaper.png" id="1_k34kw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gcy4y"]
+albedo_texture = ExtResource("1_k34kw")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+texture_filter = 4
+
+[node name="Room2" type="CSGBox3D"]
+transform = Transform3D(4.52987e-08, 0, -0.6, 0, 0.624, 0, 0.6, 0, 4.52987e-08, 0, -0.3, 0)
+size = Vector3(17, 8, 15)
+material = SubResource("StandardMaterial3D_gcy4y")
+
+[node name="Doorway" type="CSGBox3D" parent="."]
+transform = Transform3D(7.71397e-08, 0, 0.588248, 0, 1, 0, -1.00002, 0, 1.31136e-07, -3.90764, -1.79087, -6.58418)
+operation = 2
+size = Vector3(3, 4.55127, 4)
+
+[node name="interior" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 9.80549e-13, 0, 0.999992, 0, -9.80549e-13, 0, 1, -0.010366, -0.655533, -0.195552)
+operation = 2
+size = Vector3(16, 10.3209, 13)
+material = SubResource("StandardMaterial3D_gcy4y")
