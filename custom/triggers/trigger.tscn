@@ -1,8 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3ymeqgx2lr2m"]
+[gd_scene load_steps=5 format=3 uid="uid://b3ymeqgx2lr2m"]
 
 [ext_resource type="Script" path="res://classes/Trigger/obj_Trigger.gd" id="1_pnpw4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ckdds"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nhn3a"]
+transparency = 1
+shading_mode = 0
+disable_ambient_light = true
+albedo_color = Color(0.792157, 0, 0.0823529, 0.101961)
+disable_receive_shadows = true
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_88foy"]
+material = SubResource("StandardMaterial3D_nhn3a")
+top_radius = 0.0
+height = 5.0
+radial_segments = 4
 
 [node name="Trigger" type="Marker3D"]
 script = ExtResource("1_pnpw4")
@@ -11,3 +24,8 @@ script = ExtResource("1_pnpw4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_ckdds")
+
+[node name="direction" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.91069e-16, -4.37114e-09, -0.1, -0.1, -4.37114e-09, 0, -4.37114e-09, 0.1, -4.37114e-09, 0, 0, 0.255834)
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_88foy")

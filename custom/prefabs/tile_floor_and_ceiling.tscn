@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpk5d1ydc3aie"]
+
+[ext_resource type="ArrayMesh" uid="uid://dl6vkjoo6ltbu" path="res://custom/models/floor_tile_4.obj" id="1_q21e1"]
+[ext_resource type="PackedScene" uid="uid://c5aoxm3ca1wlh" path="res://custom/prefabs/ceiling_a_1.tscn" id="2_uyjpq"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_0m6y7"]
+data = PackedVector3Array(1.5, 0, 1.5, -1.5, 0, 1.5, 1.5, 0, -1.5, 1.5, 0, -1.5, -1.5, 0, 1.5, -1.5, 0, -1.5)
+
+[node name="TileFloorAndCeiling" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5, 0, 6.5)
+mesh = ExtResource("1_q21e1")
+skeleton = NodePath("../..")
+metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_0m6y7")
+
+[node name="CeilingA1" parent="." instance=ExtResource("2_uyjpq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+skeleton = NodePath("../../..")

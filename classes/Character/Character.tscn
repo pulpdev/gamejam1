@@ -25,11 +25,11 @@ size = Vector3(1, 2, 1)
 size = Vector3(0.21, 0.16, 1)
 
 [node name="Character" type="CharacterBody3D"]
+collision_layer = 3
 wall_min_slide_angle = 0.0
 floor_stop_on_slope = false
 floor_block_on_wall = false
 floor_max_angle = 1.0472
-floor_snap_length = 0.0
 script = ExtResource("1_22fxh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -41,11 +41,17 @@ script = ExtResource("2_udrru")
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
 
-[node name="UseArea" type="Area3D" parent="CameraPivot"]
+[node name="UseArea_old" type="Area3D" parent="CameraPivot"]
+visible = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraPivot/UseArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraPivot/UseArea_old"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00307007, 0.0288452, -0.734642)
 shape = SubResource("BoxShape3D_u37tn")
+disabled = true
+
+[node name="UseArea" type="RayCast3D" parent="CameraPivot"]
+target_position = Vector3(0, 0, -1.25)
+collision_mask = 2
 
 [node name="Flashlight" type="SpotLight3D" parent="CameraPivot"]
 

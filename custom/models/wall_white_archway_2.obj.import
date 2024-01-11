@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c8vrfu5dowf2g"
+path="res://.godot/imported/wall_white_archway_2.obj-1eb3e79ba4727c5b00b6fc842b0cd25f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wall_white_archway_2.obj-1eb3e79ba4727c5b00b6fc842b0cd25f.mesh"]
+
+source_file="res://custom/models/wall_white_archway_2.obj"
+dest_files=["res://.godot/imported/wall_white_archway_2.obj-1eb3e79ba4727c5b00b6fc842b0cd25f.mesh", "res://.godot/imported/wall_white_archway_2.obj-1eb3e79ba4727c5b00b6fc842b0cd25f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

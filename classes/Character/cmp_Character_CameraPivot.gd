@@ -18,6 +18,11 @@ var vector_mouse : Vector2
 @onready var init_position : Vector3 = position
 
 
+func _ready():
+	
+	usearea.add_exception(owner)
+
+
 func _input(event):
 
 	if event is InputEventMouseMotion:
@@ -44,43 +49,89 @@ func _process(delta):
 
 func _physics_process(delta):
 
-	ActivateTriggers(usearea.get_overlapping_areas())
+	ActivateTrigger(usearea.get_collider())
+
+	#ActivateTriggers(usearea.get_overlapping_areas())
 
 
-func ActivateTriggers(triggers : Array):
-	
-	for thing in triggers:
+func ActivateTrigger(obj : Object):
+
+	if obj == null:
+
+		return
 		
-		if not thing.owner is Trigger:
-			
-			triggers.pop_at(triggers.find(thing))
-			
-		if thing.owner is Trigger and thing.owner.type == Trigger.TYPES.TOUCH:
-			
-			triggers.pop_at(triggers.find(thing))
+	var trigger
 
-		if thing.name == "blocker":
+	if not obj.owner is Trigger:
+		
+		if not obj.owner.get_parent() is Trigger:
 
-			triggers.pop_at(triggers.find(thing))
+			return
+			
+		else:
+			
+			trigger = obj.owner.get_parent()
+			
+	else:
 
-	if triggers.size() == 0:
+		trigger = obj.owner
+
+	if not trigger.type == Trigger.TYPES.ACTIVATE:
 
 		return
 
-	if triggers.front().owner is Trigger:
+	if Input.is_action_just_pressed("action_use"):
+		
+		trigger.RunEvents()
+		
+		if trigger is Door:
+#
+			if not trigger.canClose:
+#
+				if trigger.opened:
+#
+					return
+#
+			trigger.Open()
 
-		var trigger = triggers.front().owner
 
-		if trigger.type == Trigger.TYPES.ACTIVATE and Input.is_action_just_pressed("action_use"):
 
-			trigger.RunEvents()
 
-			if trigger is Door:
 
-				if not trigger.canClose:
-
-					if trigger.opened:
-
-						return
-
-				trigger.Open()
+#func ActivateTriggers(triggers : Array):
+#
+	#for thing in triggers:
+#
+		#if not thing.owner is Trigger:
+			#
+			#triggers.pop_at(triggers.find(thing))
+			#
+		#if thing.owner is Trigger and thing.owner.type == Trigger.TYPES.TOUCH:
+			#
+			#triggers.pop_at(triggers.find(thing))
+#
+		#if thing.name == "blocker":
+#
+			#triggers.pop_at(triggers.find(thing))
+#
+	#if triggers.size() == 0:
+#
+		#return
+#
+	#if triggers.front().owner is Trigger:
+#
+		#var trigger = triggers.front().owner
+#
+		#if trigger.type == Trigger.TYPES.ACTIVATE and Input.is_action_just_pressed("action_use"):
+#
+			#trigger.RunEvents()
+#
+			#if trigger is Door:
+#
+				#if not trigger.canClose:
+#
+					#if trigger.opened:
+#
+						#return
+#
+				#trigger.Open()

@@ -1,0 +1,54 @@
+[gd_scene load_steps=10 format=3 uid="uid://7201481djgt3"]
+
+[ext_resource type="PackedScene" uid="uid://b74oikowsn27y" path="res://Level.tscn" id="1_p5gi6"]
+[ext_resource type="PackedScene" uid="uid://c1bxqn7ixhetm" path="res://custom/prefabs/wood_floor_and_ceiling.tscn" id="2_2mfe7"]
+[ext_resource type="PackedScene" uid="uid://b3ymeqgx2lr2m" path="res://custom/triggers/trigger.tscn" id="3_ak558"]
+[ext_resource type="PackedScene" uid="uid://2fht0yca6lcd" path="res://Player.tscn" id="3_tmdew"]
+[ext_resource type="Script" path="res://classes/Event/obj_Event.gd" id="5_ir1c0"]
+[ext_resource type="PackedScene" uid="uid://b5hlfa23h8o7v" path="res://custom/actions/ActivateTrigger.tscn" id="6_jiqs6"]
+[ext_resource type="PackedScene" uid="uid://cxe6tvjpwy35c" path="res://custom/actions/MonsterJumpScare.tscn" id="7_lq434"]
+[ext_resource type="AudioStream" uid="uid://d1num68swcy33" path="res://assets/sounds/sfx_horror_stinger_7.wav" id="7_odj07"]
+[ext_resource type="PackedScene" uid="uid://dequbawbwy7gc" path="res://custom/actions/PlaySound.tscn" id="9_skw3x"]
+
+[node name="Level" instance=ExtResource("1_p5gi6")]
+
+[node name="WoodFloorAndCeiling" parent="Map" index="0" instance=ExtResource("2_2mfe7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0.5)
+
+[node name="WoodFloorAndCeiling2" parent="Map" index="1" instance=ExtResource("2_2mfe7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0.5)
+
+[node name="WoodFloorAndCeiling3" parent="Map" index="2" instance=ExtResource("2_2mfe7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 3.5)
+
+[node name="WoodFloorAndCeiling4" parent="Map" index="3" instance=ExtResource("2_2mfe7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 3.5)
+
+[node name="Trigger" parent="Triggers" index="0" instance=ExtResource("3_ak558")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2, 0.5, 1.6)
+type = 1
+triggerOnce = true
+
+[node name="Event" type="Node" parent="Triggers/Trigger" index="1"]
+script = ExtResource("5_ir1c0")
+
+[node name="ActivateTrigger" parent="Triggers/Trigger/Event" index="0" node_paths=PackedStringArray("target") instance=ExtResource("6_jiqs6")]
+target = NodePath("../../../JumpScare1")
+
+[node name="JumpScare1" parent="Triggers" index="1" instance=ExtResource("3_ak558")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2, 0, 4)
+type = 3
+
+[node name="Event" type="Node" parent="Triggers/JumpScare1" index="1"]
+script = ExtResource("5_ir1c0")
+
+[node name="PlaySound" parent="Triggers/JumpScare1/Event" index="0" instance=ExtResource("9_skw3x")]
+sound = ExtResource("7_odj07")
+nonPositional = true
+
+[node name="MonsterJumpScare" parent="Triggers/JumpScare1/Event" index="1" instance=ExtResource("7_lq434")]
+duration = 2.0
+animation = "Walk"
+
+[node name="Character" parent="." index="5" instance=ExtResource("3_tmdew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, 0)

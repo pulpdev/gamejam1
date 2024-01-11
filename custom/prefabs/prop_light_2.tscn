@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cclufn4flkfyb"]
+
+[ext_resource type="ArrayMesh" uid="uid://bfoa4cua6tj6v" path="res://custom/models/prop_light_2.obj" id="1_344t6"]
+
+[node name="PropLight2" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, 2)
+mesh = ExtResource("1_344t6")

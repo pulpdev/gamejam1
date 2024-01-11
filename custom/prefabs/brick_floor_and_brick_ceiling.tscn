@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bes1qn4npjlee"]
+
+[ext_resource type="ArrayMesh" uid="uid://hgn4ad11nmrl" path="res://custom/models/ceiling_brick.obj" id="1_txw5f"]
+[ext_resource type="PackedScene" uid="uid://cmh7gc1xxhkb4" path="res://custom/prefabs/ceiling_brick.tscn" id="2_5d0b8"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_kewnk"]
+data = PackedVector3Array(1.5, 0, -1.5, -1.5, 0, -1.5, 1.5, 0, 1.5, 1.5, 0, 1.5, -1.5, 0, -1.5, -1.5, 0, 1.5)
+
+[node name="BrickFloorAndBrickCeiling" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, -11.5, 0, 9.5)
+mesh = ExtResource("1_txw5f")
+skeleton = NodePath("../..")
+metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_kewnk")
+
+[node name="BrickFloorAndBrickCeiling2" parent="." instance=ExtResource("2_5d0b8")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, -3, 0)
+skeleton = NodePath("../../..")

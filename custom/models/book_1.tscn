@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b0i05q5etgkrr"]
+[gd_scene load_steps=8 format=3 uid="uid://b0i05q5etgkrr"]
 
 [ext_resource type="Texture2D" uid="uid://c0m4a4hieeqxy" path="res://assets/textures/note_1.png" id="1_cmwc2"]
 [ext_resource type="Texture2D" uid="uid://qo51cateau7b" path="res://assets/textures/cabinet_1.png" id="1_s3lvh"]
@@ -21,12 +21,19 @@ uv1_offset = Vector3(0.05, 0.015, 0)
 [sub_resource type="BoxMesh" id="BoxMesh_03c5r"]
 material = SubResource("StandardMaterial3D_i61f3")
 
-[node name="Book" type="Node3D"]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_luu5b"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.62, 0, 0, 0, 0.11, 0, 0, 0, 0.81, 0, 0, 0)
+[node name="Book" type="MeshInstance3D"]
+transform = Transform3D(0.255, 0, 0, 0, 0.065, 0, 0, 0, 0.345, 0, 0, 0)
 mesh = SubResource("BoxMesh_35yng")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.6, 0, 0, 0, 0.075, 0, 0, 0, 0.83, 0.02, 0, 0)
+transform = Transform3D(0.955, 0, 0, 0, 0.76, 0, 0, 0, 1.025, 0.0308767, 0, 0)
 mesh = SubResource("BoxMesh_03c5r")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_luu5b")

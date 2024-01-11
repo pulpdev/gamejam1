@@ -107,6 +107,10 @@ mouse_1={
 ]
 }
 
+[layer_names]
+
+3d_physics/size/viewport_height=1080
+
 [rendering]
 
 lights_and_shadows/directional_shadow/soft_shadow_filter_quality=5

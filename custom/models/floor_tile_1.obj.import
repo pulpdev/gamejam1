@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d0xaynoedmvad"
+path="res://.godot/imported/floor_tile_1.obj-5fdb4265d3fe55415ab58555a07ecc12.mesh"
+
+[deps]
+
+files=["res://.godot/imported/floor_tile_1.obj-5fdb4265d3fe55415ab58555a07ecc12.mesh"]
+
+source_file="res://custom/models/floor_tile_1.obj"
+dest_files=["res://.godot/imported/floor_tile_1.obj-5fdb4265d3fe55415ab58555a07ecc12.mesh", "res://.godot/imported/floor_tile_1.obj-5fdb4265d3fe55415ab58555a07ecc12.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

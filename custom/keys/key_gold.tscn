@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://u8gr1yk55t03"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nlfw6"]
+albedo_color = Color(0.482353, 0.376471, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ad4pu"]
+material = SubResource("StandardMaterial3D_nlfw6")
+size = Vector3(0.015, 0.01, 0.175)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_lggq6"]
+data = PackedVector3Array(-0.0075, 0.005, 0.0875, 0.0075, 0.005, 0.0875, -0.0075, -0.005, 0.0875, 0.0075, 0.005, 0.0875, 0.0075, -0.005, 0.0875, -0.0075, -0.005, 0.0875, 0.0075, 0.005, -0.0875, -0.0075, 0.005, -0.0875, 0.0075, -0.005, -0.0875, -0.0075, 0.005, -0.0875, -0.0075, -0.005, -0.0875, 0.0075, -0.005, -0.0875, 0.0075, 0.005, 0.0875, 0.0075, 0.005, -0.0875, 0.0075, -0.005, 0.0875, 0.0075, 0.005, -0.0875, 0.0075, -0.005, -0.0875, 0.0075, -0.005, 0.0875, -0.0075, 0.005, -0.0875, -0.0075, 0.005, 0.0875, -0.0075, -0.005, -0.0875, -0.0075, 0.005, 0.0875, -0.0075, -0.005, 0.0875, -0.0075, -0.005, -0.0875, 0.0075, 0.005, 0.0875, -0.0075, 0.005, 0.0875, 0.0075, 0.005, -0.0875, -0.0075, 0.005, 0.0875, -0.0075, 0.005, -0.0875, 0.0075, 0.005, -0.0875, -0.0075, -0.005, 0.0875, 0.0075, -0.005, 0.0875, -0.0075, -0.005, -0.0875, 0.0075, -0.005, 0.0875, 0.0075, -0.005, -0.0875, -0.0075, -0.005, -0.0875)
+
+[node name="KeyModel" type="MeshInstance3D"]
+mesh = SubResource("BoxMesh_ad4pu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.645, 0, 0, 0, 1, 0, 0, 0, 0.07, 0.012, 0, 0.08)
+mesh = SubResource("BoxMesh_ad4pu")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.645, 0, 0, 0, 1, 0, 0, 0, 0.07, 0.012, 0, 0.0606925)
+mesh = SubResource("BoxMesh_ad4pu")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.545, 0, 0, 0, 1, 0, 0, 0, 0.21, 0.002, 0, -0.07)
+mesh = SubResource("BoxMesh_ad4pu")
+
+[node name="KeyBody" type="StaticBody3D" parent="."]
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KeyBody"]
+shape = SubResource("ConcavePolygonShape3D_lggq6")

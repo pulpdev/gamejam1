@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://b74oikowsn27y"]
+
+[ext_resource type="Script" path="res://classes/Level/obj_Level.gd" id="1_w3txr"]
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_w3txr")
+
+[node name="Map" type="Node3D" parent="."]
+
+[node name="Props" type="Node3D" parent="."]
+
+[node name="Triggers" type="Node3D" parent="."]
+
+[node name="Containers" type="Node3D" parent="."]
+
+[node name="Doors" type="Node3D" parent="."]

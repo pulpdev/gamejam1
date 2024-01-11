@@ -13,10 +13,6 @@ extends EventAction
 var player
 
 
-func _init():
-
-	wait = true
-
 
 func _ready():
 	

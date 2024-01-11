@@ -1,0 +1,60 @@
+1. on the top left corner, click '"Scene". then click "New Inherited Scene".
+2. select "Level.tscn" under "res://". click "Open".
+3. press ctrl+s, name your scene so we can recognize it's yours, then save it in "customs/levels/".
+4. in the "FileSystem" window below the scene tree window, navigate to the main directory and find "Assets.tscn". open it.
+5. theres a lot of assets here to make your levels. to begin i recommend using the prefab floors and ceilings under the "Prefabs" node.
+6. click on WoodFloorAndCeiling and copy it. go back your your level by clicking on its tab on the top of the viewport.
+7. in your level scene, click on "Map" and press crtl-v. the prefab is somewhere in the level now. you dont NEED to put it under Map, but this will be more organized.
+8. before you start moving stuff, press "Y" to turn on snap. you can also hold shift for more precision.
+9. when you're done messing with it, open your main directory again, click and drag "Player.tscn" into your level. place him on top of your floor.
+10. press F6. you made a level.
+
+if you want to import a level you already made, make sure all it's resources are in the project first. then just copy and past your scene level into the level you just made.
+
+ill go over some of the objects in this project
+
+--Triggers
+
+expand the Triggers node in the Assets scene and youll see a variety of triggers. triggers are activaed on player touch or use and then can run events under itself.
+copy "Key" into your level, make sure it's under "Triggers" for organization. you can always reparent child nodes if you mess up.
+make sure its on the floor and somewhere you can reach it. start your leven and try to press E on it, crouch if you have to.
+you should hear a sound and the key disappeared. you did a trigger.
+go back to your level click on your key. theres a properties window on the right. the one you care about are "Type" in the "Trigger" category.
+select "Touch". now start your level again and you'll activate the trigger by touching it.
+try the "Auto" trigger type too. that means the trigger starts as soon as the level starts.
+
+-- Events
+
+go back to Assets and copy "Trigger" under Triggers into your level. set the type to "Touch".
+in Assets, find the "Event" node and copy it and place it under your own Trigger node.
+in Assets, find "Dialogue" under Actions and copy it and place it under your own Event.
+click on your Dialogue action. in the properties menu on the right you will see a medium sized text window. type something in it.
+start your level, find and touch your trigger. your text should appear on screen.
+in Assets, find the "PlaySound" action and place it in your event. make sure its NOT a child of your Dialogue action. actions should never have their own children. do not put events as children of other events either.
+keep in mind the actions run top to bottom. if Dialogue is above PlaySound, Dialogue will run first.
+click on your PlaySound action, click on the "Sound" property on the top. click "Load".
+navigate to "assets/sounds/" and choose any sound you want.
+start your level. when you trigger your event, your dialogue will appear and your sound will play.
+now, click on your Dialogue action. somewhere under the text window you will see "Wait". enable it.
+when you start your trigger again, your dialogue will finish before your sound action starts now. this is how you queue actions.
+some actions are instant and setting Wait will have no effect.
+some bugs will happen, for example your sound action plays an ambiance file (plays forever), and if thats set to wait, your event will never progress.
+you may also try out the "Wait" action, place it between other actions to have more control.
+
+if you even need help with events please ask me
+
+
+-- Doors & Conditions
+
+doors are just like triggers, but they have more features
+copy any door you like from Assets into your level. if you press E on it, it will open.
+if you select "Locked" on the door node, it will be locked and cannot open. we need a key to open it.
+if you still have your "Key" trigger, search its event and find its "AddItem" action.
+in the "Item" property at the top, you must enter the name of an item in "custom/items/". do NOT include the extension.
+if you wish to create your own items, just duplicate one from the folder and name it whatever. these are specific object types, not just any .tres files.
+type the name of the item in the property and when you pick up the key, the item will be added to the global inventory.
+now try to copy an Event node from Assets to your door. then also copy the "UnlockDoor" action under the event.
+click on the event node, and in the properties window you will find "Conditions".
+click on the Conditions property, then click on "Add Element". click the "<empty>" field, then click on "New ConditionItem".
+"<emtpy>" should now say "ConditionItem". click on it again, and a field called "Item" will show. enter in that name of the item.
+now when you pick up the key, you get the item added to your inventory. then when you go open the door, it should unlock.

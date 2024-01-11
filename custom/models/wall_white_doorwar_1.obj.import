@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c587arbf80bph"
+path="res://.godot/imported/wall_white_doorwar_1.obj-6411359c555025c8c4a3110a6d9bfba6.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wall_white_doorwar_1.obj-6411359c555025c8c4a3110a6d9bfba6.mesh"]
+
+source_file="res://custom/models/wall_white_doorwar_1.obj"
+dest_files=["res://.godot/imported/wall_white_doorwar_1.obj-6411359c555025c8c4a3110a6d9bfba6.mesh", "res://.godot/imported/wall_white_doorwar_1.obj-6411359c555025c8c4a3110a6d9bfba6.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

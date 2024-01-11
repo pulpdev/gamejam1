@@ -2,7 +2,7 @@ extends Condition
 
 class_name ConditionVariable
 
-## what variable to check. see the list of variable names in 'autoloads/Global/_Global.gd'
+## what variable to check. see the list of variable names in your Level properties.
 @export var variable : String
 
 ## how do we check the variable
@@ -14,7 +14,7 @@ class_name ConditionVariable
 
 func ConditionMet():
 
-	if not Global.variables.has(variable):
+	if not Global.levelVariables.has(variable):
 
 		printerr("variable not found, ", variable, ", can't compare")
 
@@ -24,24 +24,24 @@ func ConditionMet():
 		
 		"==":
 			
-			return Global.variables[variable] == value
+			return Global.levelVariables[variable] == value
 			
 		"=/=":
 			
-			return not Global.variables[variable] == value
+			return not Global.levelVariables[variable] == value
 
 		"<":
 			
-			return Global.variables[variable] < value
+			return Global.levelVariables[variable] < value
 		
 		">":
 			
-			return Global.variables[variable] > value
+			return Global.levelVariables[variable] > value
 			
 		"<=":
 			
-			return Global.variables[variable] <= value
+			return Global.levelVariables[variable] <= value
 
 		">=":
 			
-			return Global.variables[variable] >= value
+			return Global.levelVariables[variable] >= value

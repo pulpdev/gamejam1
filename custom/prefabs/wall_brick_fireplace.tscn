@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://k7jdx2vvxpni"]
+
+[ext_resource type="ArrayMesh" uid="uid://dxtyo3ck7wye5" path="res://custom/models/wall_brick_fireplace.obj" id="1_5iytw"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_41id1"]
+data = PackedVector3Array(1.5, 0, 0, 1.0349, 0, 0, 1.5, 3, 0, 1.5, 3, 0, 1.0349, 0, 0, 1.0349, 3, 0, -1.0349, 0, 0, -1.5, 0, 0, -1.0349, 3, 0, -1.0349, 3, 0, -1.5, 0, 0, -1.5, 3, 0, 1.0349, 0, 0, 1.0349, 0, 0.4501, 1.0349, 3, 0, 1.0349, 3, 0, 1.0349, 0, 0.4501, 1.0349, 3, 0.4501, -1.0349, 0, 0.4501, -1.0349, 0, 0, -1.0349, 3, 0.4501, -1.0349, 3, 0.4501, -1.0349, 0, 0, -1.0349, 3, 0, 1.0349, 0, 0.4501, -1.0349, 0, 0.4501, 0.655, 0.0569, 0.4501, 0.655, 0.0569, 0.4501, -1.0349, 0, 0.4501, -0.655, 0.0569, 0.4501, 1.0349, 3, 0.4501, 1.0349, 0, 0.4501, 0.655, 1.168, 0.4501, 0.655, 1.168, 0.4501, 1.0349, 0, 0.4501, 0.655, 0.0569, 0.4501, -1.0349, 3, 0.4501, 1.0349, 3, 0.4501, -0.655, 1.168, 0.4501, -0.655, 1.168, 0.4501, 1.0349, 3, 0.4501, 0.655, 1.168, 0.4501, -1.0349, 0, 0.4501, -1.0349, 3, 0.4501, -0.655, 0.0569, 0.4501, -0.655, 0.0569, 0.4501, -1.0349, 3, 0.4501, -0.655, 1.168, 0.4501)
+
+[node name="WallBrickFireplace" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, -1, -4)
+mesh = ExtResource("1_5iytw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_41id1")

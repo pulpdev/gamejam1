@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c1mi2w52pymln"
+path="res://.godot/imported/prop_table.obj-689b0b6c020eea3f9abc71e7dadd19ed.mesh"
+
+[deps]
+
+files=["res://.godot/imported/prop_table.obj-689b0b6c020eea3f9abc71e7dadd19ed.mesh"]
+
+source_file="res://custom/models/prop_table.obj"
+dest_files=["res://.godot/imported/prop_table.obj-689b0b6c020eea3f9abc71e7dadd19ed.mesh", "res://.godot/imported/prop_table.obj-689b0b6c020eea3f9abc71e7dadd19ed.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

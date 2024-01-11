@@ -11,6 +11,14 @@ func _init():
 
 func Execute():
 
+	if not target:
+		
+		printerr("target field is empty for ActivateTrigger")
+
+		finished.emit()
+
+		return
+
 	target.RunEvents()
 
 	finished.emit()

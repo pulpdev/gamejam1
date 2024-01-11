@@ -17,6 +17,17 @@ signal level_ready
 @onready var sfx = $sfx
 
 
+var levelVariables : Dictionary :
+
+	get:
+
+		if get_tree().current_scene:
+
+			return get_tree().current_scene.variables
+
+		return {}
+
+
 ## list of global game variables. use these to control game progression with the 'ConditionVariable' resource.
 @export var variables : Dictionary = {
 

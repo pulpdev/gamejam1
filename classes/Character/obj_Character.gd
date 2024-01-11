@@ -107,6 +107,8 @@ var crouching : bool :
 			footsteps.timer.wait_time = 1.25 / speed
 
 func _ready():
+	
+	pivot_model.visible = false
 
 	footsteps.timer.wait_time = 1.25 / speed
 

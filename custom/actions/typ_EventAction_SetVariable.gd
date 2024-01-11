@@ -1,6 +1,6 @@
 extends EventAction
 
-## what variable to set. see the list of variable names in 'autoloads/Global/_Global.gd'
+## what variable to set. this refers to a variable name in your Level's "Variables" property list.
 @export var variable : String
 
 ## the operation to do to the variable
@@ -16,27 +16,27 @@ func _init():
 
 
 func Execute():
-	
-	if not Global.variables.has(variable):
+
+	if not Global.levelVariables.has(variable):
 
 		printerr("variable not found, ", variable, ", cant set")
-		
+
 		finished.emit()
-		
+
 		return
-		
+
 	match operation:
-		
+
 		0:
-			
-			Global.variables[variable] = value
-			
+
+			Global.levelVariables[variable] = value
+
 		1:
-			
-			Global.variables[variable] += value
-			
+
+			Global.levelVariables[variable] += value
+
 		2:
-			
-			Global.variables[variable] -= value
-			
+
+			Global.levelVariables[variable] -= value
+
 	finished.emit()

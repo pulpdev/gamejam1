@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://60v086ewf4mt"]
+
+[ext_resource type="Texture2D" uid="uid://c0m4a4hieeqxy" path="res://assets/textures/note_1.png" id="1_3h5uo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rjh4m"]
+specular_mode = 2
+albedo_color = Color(0.843137, 0.831373, 0.803922, 1)
+albedo_texture = ExtResource("1_3h5uo")
+metallic_specular = 0.0
+roughness = 0.0
+uv1_scale = Vector3(3.08, 1.995, 1)
+uv1_offset = Vector3(-0.095, 0.01, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dpypj"]
+material = SubResource("StandardMaterial3D_rjh4m")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_6q2u4"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="Note" type="MeshInstance3D"]
+transform = Transform3D(0.085, 0, 0, 0, 0.005, 0, 0, 0, 0.105, 0, 0, 0)
+mesh = SubResource("BoxMesh_dpypj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_6q2u4")

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbaiaw8i6jtol"]
+
+[ext_resource type="ArrayMesh" uid="uid://dl6vkjoo6ltbu" path="res://custom/models/floor_tile_4.obj" id="1_s5d1b"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_0m6y7"]
+data = PackedVector3Array(1.5, 0, 1.5, -1.5, 0, 1.5, 1.5, 0, -1.5, 1.5, 0, -1.5, -1.5, 0, 1.5, -1.5, 0, -1.5)
+
+[node name="FloorTile4" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 11)
+mesh = ExtResource("1_s5d1b")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_0m6y7")

@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://dep6lfh3fl2qn"]
+
+[ext_resource type="Texture2D" uid="uid://qo51cateau7b" path="res://assets/textures/cabinet_1.png" id="1_xguu3"]
+[ext_resource type="Texture2D" uid="uid://c0m4a4hieeqxy" path="res://assets/textures/note_1.png" id="2_d5d1s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r45u0"]
+specular_mode = 2
+albedo_color = Color(0.211765, 0, 0.423529, 1)
+albedo_texture = ExtResource("1_xguu3")
+metallic_specular = 0.0
+roughness = 0.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_35yng"]
+material = SubResource("StandardMaterial3D_r45u0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i61f3"]
+albedo_color = Color(0.435294, 0.34902, 0.203922, 1)
+albedo_texture = ExtResource("2_d5d1s")
+uv1_scale = Vector3(0.555, 3.81, 1.02)
+uv1_offset = Vector3(0.05, 0.015, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_03c5r"]
+material = SubResource("StandardMaterial3D_i61f3")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_luu5b"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="Book" type="MeshInstance3D"]
+transform = Transform3D(0.305, 0, 0, 0, 0.13, 0, 0, 0, 0.45, 0, 0, 0)
+mesh = SubResource("BoxMesh_35yng")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.955, 0, 0, 0, 0.76, 0, 0, 0, 1.025, 0.0308767, 0, 0)
+mesh = SubResource("BoxMesh_03c5r")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_luu5b")

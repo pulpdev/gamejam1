@@ -74,6 +74,18 @@ var lockedPlayer : AudioStreamPlayer3D
 
 
 func _ready():
+	
+	if has_node("direction"):
+
+		$direction.visible = false
+
+	if type == TYPES.AUTO:
+
+		Global.level_ready.connect(RunEvents)
+
+	if not area == null:
+
+		area.body_entered.connect(_on_area_3d_body_entered)
 
 	openPlayer = AudioStreamPlayer3D.new()
 
@@ -127,7 +139,7 @@ func Open():
 					endRotation,
 					
 					1
-				)
+				).set_trans(Tween.TRANS_QUAD)
 				
 				opened = true
 				
@@ -144,7 +156,7 @@ func Open():
 					initRotation,
 					
 					1
-				)
+				).set_trans(Tween.TRANS_QUAD)
 		
 				opened = false
 				

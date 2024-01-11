@@ -20,6 +20,16 @@ offset_bottom = 23.0
 text = "f1 to quit
 f2 to pause"
 
+[node name="Label2" type="Label" parent="debug"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "."
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="dialogue" type="Node" parent="."]
 script = ExtResource("3_c7xcf")
 

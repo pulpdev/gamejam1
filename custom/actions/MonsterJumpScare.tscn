@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxe6tvjpwy35c"]
+
+[ext_resource type="Script" path="res://custom/actions/typ_EventAction_MonsterJumpScare.gd" id="1_0vqj4"]
+
+[node name="MonsterJumpScare" type="Node"]
+script = ExtResource("1_0vqj4")
+duration = 1.0

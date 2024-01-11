@@ -1,27 +1,33 @@
-[gd_scene load_steps=13 format=3 uid="uid://co8rkd627c4bq"]
+[gd_scene load_steps=16 format=3 uid="uid://co8rkd627c4bq"]
 
 [ext_resource type="Script" path="res://classes/Level/obj_Level.gd" id="1_fih73"]
 [ext_resource type="PackedScene" uid="uid://cb8p4jav1dtme" path="res://custom/backgrounds/background_2lazy.tscn" id="2_hsjhv"]
+[ext_resource type="PackedScene" uid="uid://orakeee86vlp" path="res://custom/doors/door_002.tscn" id="3_1t8lm"]
 [ext_resource type="PackedScene" uid="uid://bi0ensk61bpv5" path="res://classes/Character/Character.tscn" id="3_r6g84"]
 [ext_resource type="PackedScene" uid="uid://cm6bx7cbfddsl" path="res://custom/prefabs/prop_dresser.tscn" id="4_bjqs1"]
 [ext_resource type="PackedScene" uid="uid://fh8mnh7rx4ya" path="res://custom/doors/drawer3.tscn" id="5_3pq2o"]
 [ext_resource type="PackedScene" uid="uid://b3ymeqgx2lr2m" path="res://custom/triggers/trigger.tscn" id="6_1hgqf"]
-[ext_resource type="PackedScene" uid="uid://wup87kat5xaw" path="res://custom/models/key1.tscn" id="7_6ogrk"]
 [ext_resource type="Script" path="res://classes/Event/obj_Event.gd" id="8_1hqec"]
+[ext_resource type="PackedScene" uid="uid://1ahw8lo7joiy" path="res://custom/keys/key.tscn" id="8_madx5"]
 [ext_resource type="PackedScene" uid="uid://cox7dsrtm74ih" path="res://custom/actions/AddItem.tscn" id="9_7a0ic"]
 [ext_resource type="PackedScene" uid="uid://buju1jnvj65wh" path="res://custom/actions/DisableTrigger.tscn" id="9_wq3mh"]
 [ext_resource type="PackedScene" uid="uid://eut2emghs5ed" path="res://custom/prefabs/prop_nightstand.tscn" id="11_dn6y6"]
 [ext_resource type="PackedScene" uid="uid://dmeceoeacctve" path="res://custom/doors/drawer2.tscn" id="12_pa83n"]
+[ext_resource type="PackedScene" uid="uid://c71jkqqqguyo" path="res://custom/events/event.tscn" id="13_of4tc"]
+[ext_resource type="PackedScene" uid="uid://dka20nfnes8mp" path="res://custom/actions/FadeOut.tscn" id="14_mbkov"]
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_fih73")
 
 [node name="background_2lazy" parent="." instance=ExtResource("2_hsjhv")]
 
+[node name="Door2" parent="background_2lazy" instance=ExtResource("3_1t8lm")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.5, 0.996458, -0.20687)
+triggerOnce = true
+
 [node name="Character" parent="." instance=ExtResource("3_r6g84")]
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 2.00824, 0.73185, -0.886663)
 wall_min_slide_angle = 0.261799
-floor_snap_length = 0.1
 
 [node name="PropDresser" parent="." instance=ExtResource("4_bjqs1")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 2.61484, 0.00910592, 2.17079)
@@ -33,19 +39,6 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.6
 [node name="Drawer2" parent="PropDresser" instance=ExtResource("5_3pq2o")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.372542, 0.2)
 
-[node name="Key" parent="PropDresser/Drawer2" instance=ExtResource("6_1hgqf")]
-transform = Transform3D(2.49143e-08, 0, -0.175, 0, 0.05, 0, 0.33, 0, 1.32121e-08, -0.197533, -0.039184, -0.00170636)
-
-[node name="KeyModel" parent="PropDresser/Drawer2/Key" instance=ExtResource("7_6ogrk")]
-transform = Transform3D(7.2931e-07, 0, -7.24, 0, 9.89, 0, 9.66, 0, 5.46605e-07, 0, 0, 0)
-
-[node name="Event" type="Node" parent="PropDresser/Drawer2/Key"]
-script = ExtResource("8_1hqec")
-
-[node name="AddItem" parent="PropDresser/Drawer2/Key/Event" instance=ExtResource("9_7a0ic")]
-
-[node name="DisableTrigger" parent="PropDresser/Drawer2/Key/Event" instance=ExtResource("9_wq3mh")]
-
 [node name="Drawer3" parent="PropDresser" instance=ExtResource("5_3pq2o")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.128204, 0.2)
 
@@ -53,4 +46,26 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.1
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.36338, 0, 2.29518)
 
 [node name="Drawer" parent="PropNightstand" instance=ExtResource("12_pa83n")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.330584, 0.000647545)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.331, 0)
+
+[node name="Key" parent="PropNightstand/Drawer" instance=ExtResource("6_1hgqf")]
+transform = Transform3D(0.999999, 0, -8.74227e-08, 0, 1, 0, 8.74227e-08, 0, 0.999999, 0.164681, 0.392459, 0.0235823)
+
+[node name="KeyModel" parent="PropNightstand/Drawer/Key" instance=ExtResource("8_madx5")]
+transform = Transform3D(1, 0, 2.13163e-14, 0, 1, 0, 2.4869e-14, 0, 1, 0, -0.354551, 0)
+
+[node name="Event" type="Node" parent="PropNightstand/Drawer/Key"]
+script = ExtResource("8_1hqec")
+
+[node name="AddItem" parent="PropNightstand/Drawer/Key/Event" instance=ExtResource("9_7a0ic")]
+
+[node name="DisableTrigger" parent="PropNightstand/Drawer/Key/Event" instance=ExtResource("9_wq3mh")]
+
+[node name="Trigger" parent="." instance=ExtResource("6_1hgqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.108, 1.11619, -4.78958)
+type = 1
+
+[node name="Event" parent="Trigger" instance=ExtResource("13_of4tc")]
+
+[node name="FadeOut" parent="Trigger/Event" instance=ExtResource("14_mbkov")]
+time = 1.0
