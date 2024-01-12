@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="corridors-gj"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://custom/levels/level_2lazy.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 

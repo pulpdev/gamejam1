@@ -26,6 +26,6 @@ script = ExtResource("1_pnpw4")
 shape = SubResource("BoxShape3D_ckdds")
 
 [node name="direction" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.91069e-16, -4.37114e-09, -0.1, -0.1, -4.37114e-09, 0, -4.37114e-09, 0.1, -4.37114e-09, 0, 0, 0.255834)
+transform = Transform3D(1.91069e-16, -4.37114e-09, 0.1, -0.1, -4.37114e-09, 0, 4.37114e-09, -0.1, -4.37114e-09, 0, 0, -0.253772)
 cast_shadow = 0
 mesh = SubResource("CylinderMesh_88foy")

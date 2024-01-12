@@ -17,6 +17,7 @@ script = ExtResource("1_rodys")
 script = ExtResource("2_4em00")
 
 [node name="Label" type="Label" parent="debug"]
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 text = "f1 to quit

@@ -13,17 +13,20 @@ var timer : Timer
 var canMove : bool
 
 
+
 func Execute():
 	
 	canMove = false
 
-	monster = load("res://custom/models/maxdamage_zombie-low-poly.gltf").instantiate()
+	monster = load("res://custom/monsters/maxdamage_zombie_low_poly.tscn").instantiate()
 
 	add_child(monster)
 
 	monster.global_position = event.trigger.global_position
 
 	monster.global_rotation = event.trigger.global_rotation
+
+	monster.scale *= 2
 
 	if not wait:
 
@@ -73,4 +76,11 @@ func _physics_process(delta):
 
 	if canMove and is_instance_valid(monster):
 
-		monster.global_position += monster.transform.basis.z * 0.01
+		monster.global_rotation.z = 0
+
+		monster.global_rotation.x = 0
+
+		monster.look_at(get_tree().current_scene.player.global_position)
+
+		monster.global_position -= monster.transform.basis.z * 0.01
+		

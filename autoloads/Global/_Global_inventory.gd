@@ -33,27 +33,35 @@ func GetItemQuantity(name : String):
 
 func AddItem(iname : String):
 
-	var dir = DirAccess.open(ITEM_DIR)
+	var item = load(ITEM_DIR + iname + ".tres")
 
-	for item in dir.get_files():
+	items.push_back(item)
 
-		var x = load(ITEM_DIR + item)
+	print("added item ", item.name)
 
-		x.name = item.trim_suffix(".tres")
 
-		if x.name != iname:
 
-			pass
+	#var dir = DirAccess.open(ITEM_DIR)
+#
+	#for item in dir.get_files():
+#
+		#var x = load(ITEM_DIR + item)
+#
+		#x.name = item.trim_suffix(".tres")
+#
+		#if x.name != iname:
+#
+			#pass
+#
+		#else:
 
-		else:
-
-			items.push_back(x)
-			
-			print("added item ", x.name)
-
-			return
-
-	printerr("item not found, ", iname, ", didnt add")
+			#items.push_back(x)
+			#
+			#print("added item ", x.name)
+#
+			#return
+#
+	#printerr("item not found, ", iname, ", didnt add")
 
 
 func RemoveItem(iname : String):

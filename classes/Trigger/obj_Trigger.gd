@@ -87,7 +87,7 @@ func RunEvents():
 	for event in events:
 
 		if get_tree().current_scene.runningEvents.has(event):
-			print(567567)
+
 			return
 
 	if self is Door:
