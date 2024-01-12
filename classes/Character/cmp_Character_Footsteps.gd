@@ -7,9 +7,9 @@ var jumpSound = load("res://assets/sounds/jump_1.wav")
 
 var stepSounds : Array = [
 
-	load("res://assets/sounds/footstep_1.wav"),
+	load("res://assets/sounds/snake_step_1.wav"),
 
-	load("res://assets/sounds/footstep_2.wav")
+	load("res://assets/sounds/snake_step_2.wav")
 
 ]
 
@@ -32,7 +32,7 @@ func _on_timer_timeout():
 
 	stepPlayer.stream = stepSounds[currentSound]
 
-	stepPlayer.pitch_scale = randf_range(0.95, 1.05)
+	stepPlayer.pitch_scale = randf_range(0.85, 0.95)
 
 	stepPlayer.play()
 

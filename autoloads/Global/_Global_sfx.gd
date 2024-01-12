@@ -17,11 +17,11 @@ signal music_finished
 
 	set(a):
 
-		if a == null:
-
-			return
-
-		else:
+		#if a == null:
+#
+			#return
+#
+		#else:
 
 			ambiance = a
 

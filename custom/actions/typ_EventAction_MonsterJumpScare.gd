@@ -73,4 +73,4 @@ func _physics_process(delta):
 
 	if canMove and is_instance_valid(monster):
 
-		monster.global_position.z -= 0.01
+		monster.global_position += monster.transform.basis.z * 0.01

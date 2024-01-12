@@ -6,7 +6,7 @@ extends EventAction
 
 var player : AudioStreamPlayer
 
-var sound = load("res://assets/sounds/pickup_1.wav")
+var sound = load("res://assets/sounds/snake_pickup_1.wav")
 
 
 func _init():

@@ -159,7 +159,7 @@ func _physics_process(delta):
 		footsteps.playJumpLandSound = false
 		
 		
-	if Input.is_action_pressed("action_crouch"):
+	if Input.is_action_pressed("action_crouch") and enableInput:
 
 		crouching = true
 		
@@ -201,7 +201,7 @@ func move(dir : Vector3, delta):
 
 		velocity.y -= gravity * delta
 
-	if jumped:
+	if jumped and enableInput:
 
 		footsteps.playJumpLandSound = true
 

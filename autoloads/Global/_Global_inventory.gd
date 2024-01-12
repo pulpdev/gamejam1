@@ -48,6 +48,8 @@ func AddItem(iname : String):
 		else:
 
 			items.push_back(x)
+			
+			print("added item ", x.name)
 
 			return
 

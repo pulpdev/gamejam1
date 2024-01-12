@@ -44,6 +44,8 @@ func Execute():
 
 	note.text = text
 	
+	note.autowrap_mode = TextServer.AUTOWRAP_WORD
+	
 	note.modulate = Color(0,0,0,0)
 	
 	player = AudioStreamPlayer.new()
@@ -85,19 +87,21 @@ func Execute():
 
 func _process(delta):
 
-	if Input.is_action_just_released("mouse_1") and canClose:
-
-		note.queue_free()
-
-		bg.queue_free()
+	if Input.is_action_just_released("mouse_1") or Input.is_action_just_released("ui_accept"):
 		
-		player.queue_free()
+		if canClose:
 
-		canClose = false
-		
-		get_tree().current_scene.player.enableInput = true
+			note.queue_free()
 
-		finished.emit()
+			bg.queue_free()
+			
+			player.queue_free()
+
+			canClose = false
+			
+			get_tree().current_scene.player.enableInput = true
+
+			finished.emit()
 
 
 func TweenFinished():

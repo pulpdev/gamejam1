@@ -80,25 +80,24 @@ func RunEvents():
 
 		return
 
-	if triggeredOnce and triggeredOnce:
-		
-		return
-
-
-	if self is Door and not self.locked and not self.runEventsIfUnlocked:
+	if triggerOnce and triggeredOnce:
 
 		return
 
 	for event in events:
 
 		if get_tree().current_scene.runningEvents.has(event):
-
+			print(567567)
 			return
+
+	if self is Door:
+
+		call("Open")
 
 	for event in events:
 
 		if event.ConditionsMet():
-			
+
 			triggeredOnce = true
 
 			event.Start()

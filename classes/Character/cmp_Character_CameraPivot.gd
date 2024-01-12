@@ -81,21 +81,8 @@ func ActivateTrigger(obj : Object):
 		return
 
 	if Input.is_action_just_pressed("action_use"):
-		
+
 		trigger.RunEvents()
-		
-		if trigger is Door:
-#
-			if not trigger.canClose:
-#
-				if trigger.opened:
-#
-					return
-#
-			trigger.Open()
-
-
-
 
 
 #func ActivateTriggers(triggers : Array):

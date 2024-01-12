@@ -4,9 +4,9 @@ extends Node
 const BASE_SHOW_TIME : float = 3.0
 
 
-@onready var window := $Label
+@onready var window : Label = $Label
 
-@onready var timer := $Timer
+@onready var timer : Timer = $Timer
 
 
 var text : String :
@@ -26,7 +26,7 @@ var text : String :
 
 func GetTextDisplayTime(string : String):
 
-	return BASE_SHOW_TIME + (string.length() / 50)
+	return BASE_SHOW_TIME + (string.length() / 40)
 
 
 func _on_timer_timeout():

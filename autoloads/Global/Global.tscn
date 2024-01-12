@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cc0gw84mkwkq8"]
+[gd_scene load_steps=9 format=3 uid="uid://cc0gw84mkwkq8"]
 
 [ext_resource type="Script" path="res://autoloads/Global/_Global.gd" id="1_rodys"]
 [ext_resource type="Script" path="res://autoloads/Global/_Global_debug.gd" id="2_4em00"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://autoloads/Global/_Global_vfx.gd" id="5_tl8d7"]
 [ext_resource type="Script" path="res://autoloads/Global/_Global_scene.gd" id="6_an4eb"]
 [ext_resource type="Script" path="res://autoloads/Global/_Global_sfx.gd" id="7_c647i"]
+
+[sub_resource type="FontVariation" id="FontVariation_krrcp"]
 
 [node name="Global" type="Node"]
 script = ExtResource("1_rodys")
@@ -20,7 +22,7 @@ offset_bottom = 23.0
 text = "f1 to quit
 f2 to pause"
 
-[node name="Label2" type="Label" parent="debug"]
+[node name="xhair" type="Label" parent="debug"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -29,25 +31,6 @@ grow_vertical = 2
 text = "."
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="dialogue" type="Node" parent="."]
-script = ExtResource("3_c7xcf")
-
-[node name="Label" type="Label" parent="dialogue"]
-anchors_preset = -1
-anchor_left = 0.2
-anchor_top = 0.82963
-anchor_right = 0.8
-anchor_bottom = 0.948148
-grow_horizontal = 2
-grow_vertical = 0
-horizontal_alignment = 1
-autowrap_mode = 2
-metadata/_edit_use_anchors_ = true
-metadata/_edit_lock_ = true
-
-[node name="Timer" type="Timer" parent="dialogue"]
-one_shot = true
 
 [node name="inventory" type="Node" parent="."]
 script = ExtResource("4_2p33t")
@@ -75,5 +58,25 @@ script = ExtResource("7_c647i")
 
 [node name="AmbiancePlayer" type="AudioStreamPlayer" parent="sfx"]
 
-[connection signal="timeout" from="dialogue/Timer" to="dialogue" method="_on_timer_timeout"]
+[node name="dialogue" type="Node" parent="."]
+script = ExtResource("3_c7xcf")
+
+[node name="Label" type="Label" parent="dialogue"]
+anchors_preset = -1
+anchor_left = 0.333333
+anchor_top = 0.77037
+anchor_right = 0.666667
+anchor_bottom = 0.948148
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = SubResource("FontVariation_krrcp")
+horizontal_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Timer" type="Timer" parent="dialogue"]
+one_shot = true
+
 [connection signal="finished" from="sfx/MusicPlayer" to="sfx" method="_on_music_player_finished"]
+[connection signal="timeout" from="dialogue/Timer" to="dialogue" method="_on_timer_timeout"]

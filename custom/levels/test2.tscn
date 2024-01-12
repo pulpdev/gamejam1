@@ -1,12 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://7201481djgt3"]
+[gd_scene load_steps=12 format=3 uid="uid://7201481djgt3"]
 
 [ext_resource type="PackedScene" uid="uid://b74oikowsn27y" path="res://Level.tscn" id="1_p5gi6"]
 [ext_resource type="PackedScene" uid="uid://c1bxqn7ixhetm" path="res://custom/prefabs/wood_floor_and_ceiling.tscn" id="2_2mfe7"]
 [ext_resource type="PackedScene" uid="uid://b3ymeqgx2lr2m" path="res://custom/triggers/trigger.tscn" id="3_ak558"]
 [ext_resource type="PackedScene" uid="uid://2fht0yca6lcd" path="res://Player.tscn" id="3_tmdew"]
 [ext_resource type="Script" path="res://classes/Event/obj_Event.gd" id="5_ir1c0"]
+[ext_resource type="PackedScene" uid="uid://cgkhxp1wa55lx" path="res://custom/actions/Dialogue.tscn" id="6_0abof"]
 [ext_resource type="PackedScene" uid="uid://b5hlfa23h8o7v" path="res://custom/actions/ActivateTrigger.tscn" id="6_jiqs6"]
 [ext_resource type="PackedScene" uid="uid://cxe6tvjpwy35c" path="res://custom/actions/MonsterJumpScare.tscn" id="7_lq434"]
+[ext_resource type="PackedScene" uid="uid://l0h3hpbpgqdb" path="res://custom/actions/Note.tscn" id="7_obuoc"]
 [ext_resource type="AudioStream" uid="uid://d1num68swcy33" path="res://assets/sounds/sfx_horror_stinger_7.wav" id="7_odj07"]
 [ext_resource type="PackedScene" uid="uid://dequbawbwy7gc" path="res://custom/actions/PlaySound.tscn" id="9_skw3x"]
 
@@ -35,8 +37,32 @@ script = ExtResource("5_ir1c0")
 [node name="ActivateTrigger" parent="Triggers/Trigger/Event" index="0" node_paths=PackedStringArray("target") instance=ExtResource("6_jiqs6")]
 target = NodePath("../../../JumpScare1")
 
-[node name="JumpScare1" parent="Triggers" index="1" instance=ExtResource("3_ak558")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2, 0, 4)
+[node name="Trigger2" parent="Triggers" index="1" instance=ExtResource("3_ak558")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96046e-08, 0.5, 2.1)
+type = 1
+triggerOnce = true
+
+[node name="Event" type="Node" parent="Triggers/Trigger2" index="1"]
+script = ExtResource("5_ir1c0")
+
+[node name="Dialogue" parent="Triggers/Trigger2/Event" index="0" instance=ExtResource("6_0abof")]
+text = "lets read this"
+wait = true
+
+[node name="Note" parent="Triggers/Trigger2/Event" index="1" instance=ExtResource("7_obuoc")]
+text = "Day 1: I did something cool today"
+wait = true
+
+[node name="Note2" parent="Triggers/Trigger2/Event" index="2" instance=ExtResource("7_obuoc")]
+text = "Day 1: I did something cool today Day 1: I did something cool today"
+wait = true
+
+[node name="Note3" parent="Triggers/Trigger2/Event" index="3" instance=ExtResource("7_obuoc")]
+text = "Day 1: I did something cool today Day 1: I did something cool today Day 1: I did something cool today"
+wait = true
+
+[node name="JumpScare1" parent="Triggers" index="2" instance=ExtResource("3_ak558")]
+transform = Transform3D(-1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, -1, -2, 0, 4)
 type = 3
 
 [node name="Event" type="Node" parent="Triggers/JumpScare1" index="1"]

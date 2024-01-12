@@ -22,9 +22,6 @@ enum OPEN_TYPES {SWING, PUSH}
 ## true and hinge on the right, door swings towards you.
 @export var reverseOpen : bool
 
-## will door still process its events if unlocked
-@export var runEventsIfUnlocked : bool = false
-
 
 var opened : bool :
 
@@ -36,9 +33,9 @@ var opened : bool :
 
 		openPlayer.play()
 
-var openSound1 = load("res://assets/sounds/dooropen_1.wav")
+var openSound1 = load("res://assets/sounds/snake_dooropen_1.wav")
 
-var openSound2 = load("res://assets/sounds/dooropen_2.wav")
+var openSound2 = load("res://assets/sounds/snake_dooropen_2.wav")
 
 var lockedSound = load("res://assets/sounds/doorlocked_1.wav")
 
@@ -90,16 +87,18 @@ func _ready():
 	openPlayer = AudioStreamPlayer3D.new()
 
 	lockedPlayer = AudioStreamPlayer3D.new()
-	
+
 	match openType:
-		
+
 		OPEN_TYPES.SWING:
 
 			openPlayer.stream = openSound1
-			
+
 		OPEN_TYPES.PUSH:
 
 			openPlayer.stream = openSound2
+
+			openPlayer.max_db = -4
 
 	openPlayer.max_polyphony = 8
 
@@ -116,17 +115,23 @@ func Open():
 
 	if locked:
 
-		lockedPlayer.pitch_scale = randf_range(0.98, 1.02)
+		lockedPlayer.pitch_scale = randf_range(0.48, 0.52)
 
 		lockedPlayer.play()
 
 		return
 
+	if opened and not canClose:
+
+		return
+
 	match  openType:
-		
+
 		OPEN_TYPES.SWING:
 
 			if not opened:
+				
+				openPlayer.pitch_scale = 1.0
 
 				var t = create_tween()
 				
@@ -138,7 +143,7 @@ func Open():
 					
 					endRotation,
 					
-					1
+					1.5
 				).set_trans(Tween.TRANS_QUAD)
 				
 				opened = true
@@ -155,7 +160,7 @@ func Open():
 					
 					initRotation,
 					
-					1
+					1.5
 				).set_trans(Tween.TRANS_QUAD)
 		
 				opened = false
@@ -163,6 +168,8 @@ func Open():
 		OPEN_TYPES.PUSH:
 			
 			if not opened:
+				
+				openPlayer.pitch_scale = 2.0
 
 				var t = create_tween()
 				
@@ -174,8 +181,8 @@ func Open():
 					
 					endPosition,
 					
-					0.5
-				).set_trans(Tween.TRANS_SPRING)
+					1.5
+				).set_trans(Tween.TRANS_BOUNCE)
 				
 				opened = true
 				
@@ -191,7 +198,7 @@ func Open():
 					
 					initPosition,
 					
-					0.5
-				).set_trans(Tween.TRANS_SPRING)
+					1.5
+				).set_trans(Tween.TRANS_BOUNCE)
 		
 				opened = false

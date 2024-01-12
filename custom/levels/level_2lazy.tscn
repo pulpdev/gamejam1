@@ -1,71 +1,387 @@
-[gd_scene load_steps=16 format=3 uid="uid://co8rkd627c4bq"]
+[gd_scene load_steps=48 format=3 uid="uid://co8rkd627c4bq"]
 
 [ext_resource type="Script" path="res://classes/Level/obj_Level.gd" id="1_fih73"]
 [ext_resource type="PackedScene" uid="uid://cb8p4jav1dtme" path="res://custom/backgrounds/background_2lazy.tscn" id="2_hsjhv"]
+[ext_resource type="AudioStream" uid="uid://cqeoaddeq520w" path="res://assets/sounds/amb_dark_1.wav" id="2_xrl6w"]
 [ext_resource type="PackedScene" uid="uid://orakeee86vlp" path="res://custom/doors/door_002.tscn" id="3_1t8lm"]
-[ext_resource type="PackedScene" uid="uid://bi0ensk61bpv5" path="res://classes/Character/Character.tscn" id="3_r6g84"]
 [ext_resource type="PackedScene" uid="uid://cm6bx7cbfddsl" path="res://custom/prefabs/prop_dresser.tscn" id="4_bjqs1"]
 [ext_resource type="PackedScene" uid="uid://fh8mnh7rx4ya" path="res://custom/doors/drawer3.tscn" id="5_3pq2o"]
+[ext_resource type="PackedScene" uid="uid://c2w1sa6rqiaxr" path="res://custom/doors/door_006.tscn" id="5_o52vs"]
 [ext_resource type="PackedScene" uid="uid://b3ymeqgx2lr2m" path="res://custom/triggers/trigger.tscn" id="6_1hgqf"]
 [ext_resource type="Script" path="res://classes/Event/obj_Event.gd" id="8_1hqec"]
 [ext_resource type="PackedScene" uid="uid://1ahw8lo7joiy" path="res://custom/keys/key.tscn" id="8_madx5"]
 [ext_resource type="PackedScene" uid="uid://cox7dsrtm74ih" path="res://custom/actions/AddItem.tscn" id="9_7a0ic"]
 [ext_resource type="PackedScene" uid="uid://buju1jnvj65wh" path="res://custom/actions/DisableTrigger.tscn" id="9_wq3mh"]
+[ext_resource type="Script" path="res://classes/Condition/ConditionItem/obj_Condition_ConditionItem.gd" id="9_xvyn2"]
+[ext_resource type="PackedScene" uid="uid://cchwkmmoxay6p" path="res://custom/actions/UnlockDoor.tscn" id="10_8r7hx"]
+[ext_resource type="PackedScene" uid="uid://bnkr061q6f77p" path="res://custom/doors/door_004.tscn" id="10_rpebt"]
 [ext_resource type="PackedScene" uid="uid://eut2emghs5ed" path="res://custom/prefabs/prop_nightstand.tscn" id="11_dn6y6"]
+[ext_resource type="Script" path="res://classes/Condition/ConditionVariable/obj_Condition_ConditionVariable.gd" id="12_daa8h"]
 [ext_resource type="PackedScene" uid="uid://dmeceoeacctve" path="res://custom/doors/drawer2.tscn" id="12_pa83n"]
 [ext_resource type="PackedScene" uid="uid://c71jkqqqguyo" path="res://custom/events/event.tscn" id="13_of4tc"]
+[ext_resource type="PackedScene" uid="uid://2fht0yca6lcd" path="res://Player.tscn" id="14_8fwqt"]
 [ext_resource type="PackedScene" uid="uid://dka20nfnes8mp" path="res://custom/actions/FadeOut.tscn" id="14_mbkov"]
+[ext_resource type="PackedScene" uid="uid://bgk3nn11dvyqx" path="res://custom/actions/DisablePlayer.tscn" id="16_uv3wb"]
+[ext_resource type="PackedScene" uid="uid://0vekxw1kda2o" path="res://custom/actions/Wait.tscn" id="17_0043d"]
+[ext_resource type="PackedScene" uid="uid://bfdmr12wn6xq6" path="res://custom/actions/DisableFlashlight.tscn" id="17_gkoin"]
+[ext_resource type="PackedScene" uid="uid://cgkhxp1wa55lx" path="res://custom/actions/Dialogue.tscn" id="17_odn7j"]
+[ext_resource type="PackedScene" uid="uid://be5157t1kfs6c" path="res://custom/prefabs/prop_light_1.tscn" id="17_vugjx"]
+[ext_resource type="PackedScene" uid="uid://craoqkk7576se" path="res://custom/actions/FadeIn.tscn" id="19_srexd"]
+[ext_resource type="PackedScene" uid="uid://oftsiveluuil" path="res://custom/models/book_3.tscn" id="20_uidw2"]
+[ext_resource type="PackedScene" uid="uid://b05p6ylnfqjgh" path="res://custom/actions/EnablePlayer.tscn" id="21_4cssn"]
+[ext_resource type="PackedScene" uid="uid://rdblw6nmfbye" path="res://custom/actions/EnableFlashlight.tscn" id="22_wsi3q"]
+[ext_resource type="PackedScene" uid="uid://cxe6tvjpwy35c" path="res://custom/actions/MonsterJumpScare.tscn" id="25_er36i"]
+[ext_resource type="PackedScene" uid="uid://ij5hofbnm8ox" path="res://custom/actions/SetAmbiance.tscn" id="25_ftxrt"]
+[ext_resource type="PackedScene" uid="uid://dequbawbwy7gc" path="res://custom/actions/PlaySound.tscn" id="25_w0gew"]
+[ext_resource type="AudioStream" uid="uid://cde8te0jl5to0" path="res://assets/sounds/sfx_horror_stinger_1.wav" id="26_u3i3q"]
+[ext_resource type="PackedScene" uid="uid://b5hlfa23h8o7v" path="res://custom/actions/ActivateTrigger.tscn" id="28_pmk70"]
+[ext_resource type="PackedScene" uid="uid://c7ax2s3rc0851" path="res://custom/actions/SetVariable.tscn" id="30_lya3q"]
+[ext_resource type="PackedScene" uid="uid://dqsn4i0f4ir82" path="res://custom/actions/LockDoor.tscn" id="32_o0xyn"]
+[ext_resource type="PackedScene" uid="uid://dspvufcdk3fk5" path="res://custom/models/note_3.tscn" id="32_yw7xj"]
+[ext_resource type="PackedScene" uid="uid://l0h3hpbpgqdb" path="res://custom/actions/Note.tscn" id="33_5qj3t"]
+[ext_resource type="AudioStream" uid="uid://cn5emjpmxba4c" path="res://assets/sounds/sfx_footsteps_4.wav" id="34_tlrun"]
+[ext_resource type="AudioStream" uid="uid://dp3hdlb1x88bl" path="res://assets/sounds/sfx_footsteps_5.wav" id="35_y5q6w"]
+[ext_resource type="PackedScene" uid="uid://dep6lfh3fl2qn" path="res://custom/models/book_evil.tscn" id="37_w3r2a"]
+[ext_resource type="AudioStream" uid="uid://bga6toujoiqw8" path="res://assets/sounds/Drone_doom.wav" id="39_y6oth"]
+[ext_resource type="AudioStream" uid="uid://ddirs85scjx2m" path="res://assets/sounds/amb_horror_1.wav" id="41_5m1of"]
+
+[sub_resource type="Environment" id="Environment_3hmab"]
+background_mode = 1
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.0
+fog_enabled = true
+fog_light_color = Color(0.0235294, 0.0392157, 0.0352941, 1)
+fog_density = 0.2
+
+[sub_resource type="Resource" id="Resource_xux01"]
+script = ExtResource("9_xvyn2")
+item = "key_1"
+
+[sub_resource type="Resource" id="Resource_iwq8m"]
+script = ExtResource("12_daa8h")
+variable = "stage"
+operand = "=="
+value = 1
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_fih73")
+ambiance = ExtResource("2_xrl6w")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3hmab")
+
+[node name="Character" parent="." instance=ExtResource("14_8fwqt")]
+transform = Transform3D(0.00876141, 0, 0.999962, 0, 1, 0, -0.999962, 0, 0.00876141, 4.12237, 1.2652, -0.21966)
+floor_snap_length = 1.0
 
 [node name="background_2lazy" parent="." instance=ExtResource("2_hsjhv")]
 
-[node name="Door2" parent="background_2lazy" instance=ExtResource("3_1t8lm")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.5, 0.996458, -0.20687)
-triggerOnce = true
+[node name="Doors" type="Node3D" parent="."]
 
-[node name="Character" parent="." instance=ExtResource("3_r6g84")]
-transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 2.00824, 0.73185, -0.886663)
-wall_min_slide_angle = 0.261799
+[node name="Door6" parent="Doors" instance=ExtResource("5_o52vs")]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 13.3911, 1, 0.504415)
+locked = true
 
-[node name="PropDresser" parent="." instance=ExtResource("4_bjqs1")]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 2.61484, 0.00910592, 2.17079)
+[node name="Door2" parent="Doors" instance=ExtResource("3_1t8lm")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.5, 1, -1.5)
+
+[node name="Event" type="Node" parent="Doors/Door2"]
+script = ExtResource("8_1hqec")
+conditions = Array[Resource("res://classes/Condition/obj_Condition.gd")]([SubResource("Resource_xux01")])
+
+[node name="UnlockDoor" parent="Doors/Door2/Event" instance=ExtResource("10_8r7hx")]
+
+[node name="Door3" parent="Doors" instance=ExtResource("3_1t8lm")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.5, 1, -1.5)
+
+[node name="Door4" parent="Doors" instance=ExtResource("10_rpebt")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.5, -2.00354, -16.5277)
+
+[node name="Door5" parent="Doors" instance=ExtResource("10_rpebt")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5, -2.00354, -16.5277)
+locked = true
+
+[node name="Event2" parent="Doors/Door5" instance=ExtResource("13_of4tc")]
+conditions = Array[Resource("res://classes/Condition/obj_Condition.gd")]([SubResource("Resource_iwq8m")])
+
+[node name="Wait" parent="Doors/Door5/Event2" instance=ExtResource("17_0043d")]
+time = 0.1
+
+[node name="UnlockDoor" parent="Doors/Door5/Event2" instance=ExtResource("10_8r7hx")]
+wait = true
+
+[node name="ActivateTrigger" parent="Doors/Door5/Event2" node_paths=PackedStringArray("target") instance=ExtResource("28_pmk70")]
+target = NodePath("../../../../Triggers/trigger_steps2")
+
+[node name="Containers" type="Node3D" parent="."]
+
+[node name="PropDresser" parent="Containers" instance=ExtResource("4_bjqs1")]
+transform = Transform3D(-0.999176, 0, -0.0405853, 0, 1, 0, 0.0405853, 0, -0.999176, 9.00899, 0.00910592, -1.8465)
 skeleton = NodePath("")
 
-[node name="Drawer" parent="PropDresser" instance=ExtResource("5_3pq2o")]
+[node name="Drawer" parent="Containers/PropDresser" instance=ExtResource("5_3pq2o")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.619198, 0.2)
 
-[node name="Drawer2" parent="PropDresser" instance=ExtResource("5_3pq2o")]
+[node name="Drawer2" parent="Containers/PropDresser" instance=ExtResource("5_3pq2o")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.372542, 0.2)
 
-[node name="Drawer3" parent="PropDresser" instance=ExtResource("5_3pq2o")]
+[node name="Drawer3" parent="Containers/PropDresser" instance=ExtResource("5_3pq2o")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.128204, 0.2)
 
-[node name="PropNightstand" parent="." instance=ExtResource("11_dn6y6")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.36338, 0, 2.29518)
+[node name="PropNightstand" parent="Containers" instance=ExtResource("11_dn6y6")]
+transform = Transform3D(-0.999958, 0, 0.00914527, 0, 1, 0, -0.00914527, 0, -0.999958, -12.8996, 0, -1.91083)
+skeleton = NodePath("../..")
 
-[node name="Drawer" parent="PropNightstand" instance=ExtResource("12_pa83n")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.331, 0)
+[node name="Key" parent="Containers/PropNightstand" instance=ExtResource("6_1hgqf")]
+transform = Transform3D(0.447603, 0, -0.894232, 0, 1, 0, 0.894232, 0, 0.447603, -0.0245972, 0.846479, 0.0536803)
 
-[node name="Key" parent="PropNightstand/Drawer" instance=ExtResource("6_1hgqf")]
-transform = Transform3D(0.999999, 0, -8.74227e-08, 0, 1, 0, 8.74227e-08, 0, 0.999999, 0.164681, 0.392459, 0.0235823)
+[node name="KeyModel" parent="Containers/PropNightstand/Key" instance=ExtResource("8_madx5")]
+transform = Transform3D(2, 0, -5.96046e-08, 0, 2, 0, 5.96046e-08, 0, 2, 0, -0.354551, 0)
 
-[node name="KeyModel" parent="PropNightstand/Drawer/Key" instance=ExtResource("8_madx5")]
-transform = Transform3D(1, 0, 2.13163e-14, 0, 1, 0, 2.4869e-14, 0, 1, 0, -0.354551, 0)
-
-[node name="Event" type="Node" parent="PropNightstand/Drawer/Key"]
+[node name="Event" type="Node" parent="Containers/PropNightstand/Key"]
 script = ExtResource("8_1hqec")
 
-[node name="AddItem" parent="PropNightstand/Drawer/Key/Event" instance=ExtResource("9_7a0ic")]
+[node name="AddItem" parent="Containers/PropNightstand/Key/Event" instance=ExtResource("9_7a0ic")]
+item = "key_1"
 
-[node name="DisableTrigger" parent="PropNightstand/Drawer/Key/Event" instance=ExtResource("9_wq3mh")]
+[node name="DisableTrigger" parent="Containers/PropNightstand/Key/Event" instance=ExtResource("9_wq3mh")]
 
-[node name="Trigger" parent="." instance=ExtResource("6_1hgqf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.108, 1.11619, -4.78958)
+[node name="Drawer" parent="Containers/PropNightstand" instance=ExtResource("12_pa83n")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.331, 0)
+
+[node name="PropDresser2" parent="Containers" instance=ExtResource("4_bjqs1")]
+transform = Transform3D(0.997447, 0, -0.0714104, 0, 1, 0, 0.0714104, 0, 0.997447, -8.87282, -0.000400126, -7.03296)
+skeleton = NodePath("../..")
+
+[node name="Drawer" parent="Containers/PropDresser2" instance=ExtResource("5_3pq2o")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.619, 0.2)
+
+[node name="Drawer2" parent="Containers/PropDresser2" instance=ExtResource("5_3pq2o")]
+transform = Transform3D(-4.47035e-08, 0, -1, 0, 1, 0, 1, 0, -4.47035e-08, -9.53674e-07, 0.372542, 0.2)
+
+[node name="BookBrown" parent="Containers/PropDresser2/Drawer2" instance=ExtResource("6_1hgqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.153214, 0, 0.141359)
+metadata/_edit_group_ = true
+
+[node name="BookModel" parent="Containers/PropDresser2/Drawer2/BookBrown" instance=ExtResource("20_uidw2")]
+
+[node name="Event" type="Node" parent="Containers/PropDresser2/Drawer2/BookBrown"]
+script = ExtResource("8_1hqec")
+
+[node name="Note" parent="Containers/PropDresser2/Drawer2/BookBrown/Event" instance=ExtResource("33_5qj3t")]
+text = "All the pages are ripped and the title of the book is marked out."
+
+[node name="Drawer3" parent="Containers/PropDresser2" instance=ExtResource("5_3pq2o")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.128204, 0.2)
+
+[node name="Triggers" type="Node3D" parent="."]
+
+[node name="INTRO" parent="Triggers" instance=ExtResource("6_1hgqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.812, 1.11619, -0.0695179)
+type = 3
+triggerOnce = true
+
+[node name="Event" parent="Triggers/INTRO" instance=ExtResource("13_of4tc")]
+
+[node name="DisablePlayer" parent="Triggers/INTRO/Event" instance=ExtResource("16_uv3wb")]
+
+[node name="DisableFlashlight" parent="Triggers/INTRO/Event" instance=ExtResource("17_gkoin")]
+
+[node name="FadeOut" parent="Triggers/INTRO/Event" instance=ExtResource("14_mbkov")]
+
+[node name="Wait" parent="Triggers/INTRO/Event" instance=ExtResource("17_0043d")]
+time = 2.0
+
+[node name="Dialogue" parent="Triggers/INTRO/Event" instance=ExtResource("17_odn7j")]
+text = "I have been called to question John Kendall
+who is reported to be a witness of the recent murders."
+wait = true
+
+[node name="Wait2" parent="Triggers/INTRO/Event" instance=ExtResource("17_0043d")]
+
+[node name="Dialogue2" parent="Triggers/INTRO/Event" instance=ExtResource("17_odn7j")]
+text = "His door was unlocked. No anwser. His power seems to be out."
+wait = true
+
+[node name="EnablePlayer" parent="Triggers/INTRO/Event" instance=ExtResource("21_4cssn")]
+
+[node name="EnableFlashlight" parent="Triggers/INTRO/Event" instance=ExtResource("22_wsi3q")]
+
+[node name="FadeIn" parent="Triggers/INTRO/Event" instance=ExtResource("19_srexd")]
+time = 2.0
+
+[node name="trigger_steps" parent="Triggers" instance=ExtResource("6_1hgqf")]
+transform = Transform3D(3.715, 0, -0.000773704, 0, 1, 0, 0.000842907, 0, 3.41, 9.77165, 1.11619, -3.34949)
+type = 1
+triggerOnce = true
+
+[node name="Event" parent="Triggers/trigger_steps" instance=ExtResource("13_of4tc")]
+
+[node name="SetVariable" parent="Triggers/trigger_steps/Event" instance=ExtResource("30_lya3q")]
+variable = "stage"
+value = 1
+
+[node name="ActivateTrigger" parent="Triggers/trigger_steps/Event" node_paths=PackedStringArray("target") instance=ExtResource("28_pmk70")]
+target = NodePath("../../../../Doors/Door5")
+
+[node name="trigger_steps2" parent="Triggers" instance=ExtResource("6_1hgqf")]
+transform = Transform3D(3.715, 0, -0.000773704, 0, 1, 0, 0.000842907, 0, 3.41, -0.105938, -2.24937, -15.9412)
+type = 3
+triggerOnce = true
+
+[node name="Event" parent="Triggers/trigger_steps2" instance=ExtResource("13_of4tc")]
+
+[node name="PlaySound" parent="Triggers/trigger_steps2/Event" instance=ExtResource("25_w0gew")]
+sound = ExtResource("34_tlrun")
+
+[node name="Wait" parent="Triggers/trigger_steps2/Event" instance=ExtResource("17_0043d")]
+time = 2.0
+
+[node name="ActivateTrigger2" parent="Triggers/trigger_steps2/Event" node_paths=PackedStringArray("target") instance=ExtResource("28_pmk70")]
+target = NodePath("../../../../Doors/Door5")
+
+[node name="ActivateTrigger4" parent="Triggers/trigger_steps2/Event" node_paths=PackedStringArray("target") instance=ExtResource("28_pmk70")]
+target = NodePath("../../../../Doors/Door4")
+
+[node name="LockDoor" parent="Triggers/trigger_steps2/Event" node_paths=PackedStringArray("door") instance=ExtResource("32_o0xyn")]
+door = NodePath("../../../../Doors/Door4")
+
+[node name="Wait2" parent="Triggers/trigger_steps2/Event" instance=ExtResource("17_0043d")]
+time = 2.0
+
+[node name="ActivateTrigger3" parent="Triggers/trigger_steps2/Event" node_paths=PackedStringArray("target") instance=ExtResource("28_pmk70")]
+target = NodePath("../../../trigger_steps3")
+
+[node name="trigger_steps3" parent="Triggers" instance=ExtResource("6_1hgqf")]
+transform = Transform3D(3.715, 0, -0.000773704, 0, 1, 0, 0.000842907, 0, 3.41, -24.4877, -2.24937, -16.4454)
+type = 3
+triggerOnce = true
+
+[node name="Event" parent="Triggers/trigger_steps3" instance=ExtResource("13_of4tc")]
+
+[node name="PlaySound" parent="Triggers/trigger_steps3/Event" instance=ExtResource("25_w0gew")]
+sound = ExtResource("35_y5q6w")
+wait = true
+
+[node name="ActivateTrigger3" parent="Triggers/trigger_steps3/Event" node_paths=PackedStringArray("target") instance=ExtResource("28_pmk70")]
+target = NodePath("../../../../Doors/Door4")
+
+[node name="PlaySound2" parent="Triggers/trigger_steps3/Event" instance=ExtResource("25_w0gew")]
+sound = ExtResource("34_tlrun")
+
+[node name="mrkendall" parent="Triggers" instance=ExtResource("6_1hgqf")]
+transform = Transform3D(3.715, 0, 0, 0, 1, 0, 0, 0, 3.41, 0.0249298, 1.11619, -4.05052)
 type = 1
 
-[node name="Event" parent="Trigger" instance=ExtResource("13_of4tc")]
+[node name="Event" parent="Triggers/mrkendall" instance=ExtResource("13_of4tc")]
 
-[node name="FadeOut" parent="Trigger/Event" instance=ExtResource("14_mbkov")]
-time = 1.0
+[node name="Dialogue" parent="Triggers/mrkendall/Event" instance=ExtResource("17_odn7j")]
+text = "Hello? Detective Williams from NYPD."
+
+[node name="LockDoor" parent="Triggers/mrkendall/Event" node_paths=PackedStringArray("door") instance=ExtResource("32_o0xyn")]
+door = NodePath("../../../../Doors/Door3")
+
+[node name="JumpScare" parent="Triggers" instance=ExtResource("6_1hgqf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.81203, 0.11619, -12.0695)
+type = 3
+triggerOnce = true
+
+[node name="Event" parent="Triggers/JumpScare" instance=ExtResource("13_of4tc")]
+
+[node name="SetAmbiance" parent="Triggers/JumpScare/Event" instance=ExtResource("25_ftxrt")]
+
+[node name="PlaySound" parent="Triggers/JumpScare/Event" instance=ExtResource("25_w0gew")]
+sound = ExtResource("26_u3i3q")
+
+[node name="MonsterJumpScare" parent="Triggers/JumpScare/Event" instance=ExtResource("25_er36i")]
+animation = "Walk"
+wait = true
+
+[node name="DisableFlashlight" parent="Triggers/JumpScare/Event" instance=ExtResource("17_gkoin")]
+
+[node name="DisablePlayer" parent="Triggers/JumpScare/Event" instance=ExtResource("16_uv3wb")]
+
+[node name="FadeOut" parent="Triggers/JumpScare/Event" instance=ExtResource("14_mbkov")]
+
+[node name="JumpScareTrigger" parent="Triggers" instance=ExtResource("6_1hgqf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.81203, 0.11619, -12.0695)
+type = 1
+triggerOnce = true
+
+[node name="Event" parent="Triggers/JumpScareTrigger" instance=ExtResource("13_of4tc")]
+
+[node name="ActivateTrigger" parent="Triggers/JumpScareTrigger/Event" node_paths=PackedStringArray("target") instance=ExtResource("28_pmk70")]
+target = NodePath("../../../JumpScare")
+
+[node name="NoteLarge" parent="Triggers" instance=ExtResource("6_1hgqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.438171, 0.734424, 9.89325)
+metadata/_edit_group_ = true
+
+[node name="NoteModel" parent="Triggers/NoteLarge" instance=ExtResource("32_yw7xj")]
+
+[node name="Event" type="Node" parent="Triggers/NoteLarge"]
+script = ExtResource("8_1hqec")
+
+[node name="Note" parent="Triggers/NoteLarge/Event" instance=ExtResource("33_5qj3t")]
+text = "September 7, 38 year old Rico Carlson was found dead in his home by a curious neighbor."
+
+[node name="Note2" parent="Triggers/NoteLarge/Event" instance=ExtResource("33_5qj3t")]
+text = "His witness report suggests Rico had been dead in his home for a week, and that Rico was not acting normal prior to the tragic discovery."
+
+[node name="BookEvil" parent="Triggers" instance=ExtResource("6_1hgqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -2.2, -21.4)
+triggerOnce = true
+metadata/_edit_group_ = true
+
+[node name="BookModel" parent="Triggers/BookEvil" instance=ExtResource("37_w3r2a")]
+
+[node name="Event" type="Node" parent="Triggers/BookEvil"]
+script = ExtResource("8_1hqec")
+
+[node name="Note" parent="Triggers/BookEvil/Event" instance=ExtResource("33_5qj3t")]
+text = "I must hide I must hide I must hide I must hide I must hide I must hide I must hide I must hide I must hide ..."
+
+[node name="Note2" parent="Triggers/BookEvil/Event" instance=ExtResource("33_5qj3t")]
+text = "Guardian soul steep gracefuly in graspful protection Guardian playful still in grasp for attention Greet Greet Greet Greet Greet Greet ..."
+
+[node name="PlaySound2" parent="Triggers/BookEvil/Event" instance=ExtResource("25_w0gew")]
+sound = ExtResource("39_y6oth")
+
+[node name="Note3" parent="Triggers/BookEvil/Event" instance=ExtResource("33_5qj3t")]
+text = "Coming Coming Coming Coming William.
+
+Hide."
+
+[node name="SetAmbiance" parent="Triggers/BookEvil/Event" instance=ExtResource("25_ftxrt")]
+sound = ExtResource("41_5m1of")
+
+[node name="Props" type="Node3D" parent="."]
+
+[node name="PropLight1" parent="Props" instance=ExtResource("17_vugjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.71983, 2.93299, -0.0874486)
+skeleton = NodePath("../..")
+
+[node name="PropLight2" parent="Props" instance=ExtResource("17_vugjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0415957, 2.93299, -0.0874486)
+skeleton = NodePath("../..")
+
+[node name="PropLight3" parent="Props" instance=ExtResource("17_vugjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.18864, 2.93299, -0.0874486)
+skeleton = NodePath("../..")
+
+[node name="PropLight4" parent="Props" instance=ExtResource("17_vugjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4566, 2.93299, -4.43972)
+skeleton = NodePath("../..")
+
+[node name="PropLight5" parent="Props" instance=ExtResource("17_vugjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0180266, 2.93299, 10.458)
+skeleton = NodePath("../..")
+
+[node name="PropLight6" parent="Props" instance=ExtResource("17_vugjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0180266, 2.93299, -10.5003)
+skeleton = NodePath("../..")
+
+[node name="PropLight7" parent="Props" instance=ExtResource("17_vugjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.43177, 2.93299, -4.49342)
+skeleton = NodePath("../..")
