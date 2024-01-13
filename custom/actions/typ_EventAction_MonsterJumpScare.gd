@@ -15,7 +15,7 @@ var canMove : bool
 
 
 func Execute():
-	
+
 	canMove = false
 
 	monster = load("res://custom/monsters/maxdamage_zombie_low_poly.tscn").instantiate()
@@ -25,8 +25,6 @@ func Execute():
 	monster.global_position = event.trigger.global_position
 
 	monster.global_rotation = event.trigger.global_rotation
-
-	monster.scale *= 2
 
 	if not wait:
 
@@ -66,15 +64,22 @@ func Execute():
 
 	if animation == "Walk":
 
-		canMove = true
+		monster.get_node("AnimationPlayer").speed_scale = 2.0
 
+		canMove = true
+		
+	else:
+		
+		monster.get_node("AnimationPlayer").speed_scale = 1.0
+		
+		canMove = false
 
 	print(monster)
 
 
 func _physics_process(delta):
 
-	if canMove and is_instance_valid(monster):
+	if is_instance_valid(monster):
 
 		monster.global_rotation.z = 0
 
@@ -82,5 +87,7 @@ func _physics_process(delta):
 
 		monster.look_at(get_tree().current_scene.player.global_position)
 
-		monster.global_position -= monster.transform.basis.z * 0.01
+		if canMove:
+
+			monster.global_position -= monster.transform.basis.z * 0.01
 		

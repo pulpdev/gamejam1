@@ -5,11 +5,11 @@
 [node name="maxdamage_zombie-low-poly" instance=ExtResource("1_2ln3e")]
 
 [node name="Armature" parent="." index="0"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-1.5, 0, -2.26494e-07, 0, 1.5, 0, 2.26494e-07, 0, -1.5, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/1/rotation = Quaternion(0.713264, 0.0214563, -0.0210648, 0.70025)
-bones/2/rotation = Quaternion(-0.86856, -0.0640392, -0.0770017, 0.48536)
+bones/2/rotation = Quaternion(-0.868559, -0.0640392, -0.0770017, 0.48536)
 bones/3/rotation = Quaternion(0.327037, 0.0231281, 0.105847, 0.93878)
 bones/4/rotation = Quaternion(-0.413184, 0.448709, 0.63229, 0.477648)
 bones/5/rotation = Quaternion(-0.558553, 0.207612, -0.169314, 0.785015)

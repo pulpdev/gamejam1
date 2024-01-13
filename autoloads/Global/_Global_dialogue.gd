@@ -26,7 +26,7 @@ var text : String :
 
 func GetTextDisplayTime(string : String):
 
-	return BASE_SHOW_TIME + (string.length() / 40)
+	return BASE_SHOW_TIME + (string.length() / 15)
 
 
 func _on_timer_timeout():

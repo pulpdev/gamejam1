@@ -47,7 +47,7 @@ signal music_finished
 
 						DEFAULT_AMB_DB,
 
-						1
+						2
 
 					)
 			)
@@ -60,7 +60,7 @@ signal music_finished
 
 				-80.0,
 
-				1
+				2
 
 			)
 

@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3 uid="uid://dwfwccoabfluc"]
+
+[ext_resource type="Script" path="res://classes/Level/obj_Level.gd" id="1_hnt4b"]
+[ext_resource type="PackedScene" uid="uid://b3ymeqgx2lr2m" path="res://custom/triggers/trigger.tscn" id="2_wr5m8"]
+[ext_resource type="Script" path="res://classes/Event/obj_Event.gd" id="3_s266a"]
+[ext_resource type="PackedScene" uid="uid://dka20nfnes8mp" path="res://custom/actions/FadeOut.tscn" id="4_mmidj"]
+[ext_resource type="PackedScene" uid="uid://2fht0yca6lcd" path="res://Player.tscn" id="5_g0mp2"]
+[ext_resource type="PackedScene" uid="uid://bfdmr12wn6xq6" path="res://custom/actions/DisableFlashlight.tscn" id="5_tmbg8"]
+[ext_resource type="PackedScene" uid="uid://bgk3nn11dvyqx" path="res://custom/actions/DisablePlayer.tscn" id="6_wepub"]
+[ext_resource type="PackedScene" uid="uid://biyd3pqq30grv" path="res://custom/actions/ChangeLevel.tscn" id="7_ojm17"]
+[ext_resource type="Script" path="res://custom/levels/inro_tutorial.gd" id="8_1ijjj"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_e226p"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ghwda"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_hnt4b")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "E to interact
+SPACEBAR to jump
+CTRL to crouch
+F to use flashlight
+
+Open drawers to find items and keys
+Read notes and books
+
+Press ESCAPE to start"
+horizontal_alignment = 1
+script = ExtResource("8_1ijjj")
+
+[node name="Trigger" parent="Label" instance=ExtResource("2_wr5m8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+type = 2
+
+[node name="Event" type="Node" parent="Label/Trigger"]
+script = ExtResource("3_s266a")
+
+[node name="FadeOut" parent="Label/Trigger/Event" instance=ExtResource("4_mmidj")]
+
+[node name="DisableFlashlight" parent="Label/Trigger/Event" instance=ExtResource("5_tmbg8")]
+
+[node name="DisablePlayer" parent="Label/Trigger/Event" instance=ExtResource("6_wepub")]
+
+[node name="start" parent="Label" instance=ExtResource("2_wr5m8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4)
+type = 3
+
+[node name="Event" type="Node" parent="Label/start"]
+script = ExtResource("3_s266a")
+
+[node name="ChangeLevel" parent="Label/start/Event" instance=ExtResource("7_ojm17")]
+level = "level_2lazy_trailerpark"
+fade = false
+
+[node name="Character" parent="." instance=ExtResource("5_g0mp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0603453, -0.419587, 0.0456295)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.51367, 0)
+mesh = SubResource("BoxMesh_e226p")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ghwda")

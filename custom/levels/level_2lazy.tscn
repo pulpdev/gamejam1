@@ -39,15 +39,15 @@
 [ext_resource type="PackedScene" uid="uid://dqsn4i0f4ir82" path="res://custom/actions/LockDoor.tscn" id="32_o0xyn"]
 [ext_resource type="PackedScene" uid="uid://dspvufcdk3fk5" path="res://custom/models/note_3.tscn" id="32_yw7xj"]
 [ext_resource type="PackedScene" uid="uid://l0h3hpbpgqdb" path="res://custom/actions/Note.tscn" id="33_5qj3t"]
+[ext_resource type="AudioStream" uid="uid://b11gcx3q85tmp" path="res://assets/sounds/song_theme.wav" id="33_xcki1"]
 [ext_resource type="AudioStream" uid="uid://cn5emjpmxba4c" path="res://assets/sounds/sfx_footsteps_4.wav" id="34_tlrun"]
 [ext_resource type="AudioStream" uid="uid://dp3hdlb1x88bl" path="res://assets/sounds/sfx_footsteps_5.wav" id="35_y5q6w"]
 [ext_resource type="PackedScene" uid="uid://dep6lfh3fl2qn" path="res://custom/models/book_evil.tscn" id="37_w3r2a"]
 [ext_resource type="AudioStream" uid="uid://bcgahe20wq4iy" path="res://assets/sounds/amb_horror_choir.wav" id="38_yc5b8"]
 [ext_resource type="AudioStream" uid="uid://boew3e2fykso8" path="res://assets/sounds/sfx_horror_monster_5.wav" id="39_3ch8g"]
-[ext_resource type="AudioStream" uid="uid://bga6toujoiqw8" path="res://assets/sounds/Drone_doom.wav" id="39_y6oth"]
-[ext_resource type="AudioStream" uid="uid://bkq5i8d83xiyg" path="res://assets/sounds/sfx_footsteps_3.wav" id="41_1w05o"]
 [ext_resource type="AudioStream" uid="uid://ddirs85scjx2m" path="res://assets/sounds/amb_horror_1.wav" id="41_5m1of"]
-[ext_resource type="AudioStream" uid="uid://dmiycvwjsahgh" path="res://assets/sounds/sfx_horror_monster_1.wav" id="42_jgcvb"]
+[ext_resource type="AudioStream" uid="uid://4hkgf2av31lh" path="res://assets/sounds/sfx_footsteps_3_1.wav" id="41_d0rdb"]
+[ext_resource type="AudioStream" uid="uid://d25obamfu12ls" path="res://assets/sounds/sfx_horror_stinger_5.wav" id="45_pbbmu"]
 
 [sub_resource type="Environment" id="Environment_3hmab"]
 background_mode = 1
@@ -94,7 +94,7 @@ ambiance = ExtResource("2_xrl6w")
 environment = SubResource("Environment_3hmab")
 
 [node name="Character" parent="." instance=ExtResource("14_8fwqt")]
-transform = Transform3D(0.00876141, 0, 0.999962, 0, 1, 0, -0.999962, 0, 0.00876141, 10.9998, 0.853489, -0.0875349)
+transform = Transform3D(0.0128976, 0, 0.999917, 0, 1, 0, -0.999917, 0, 0.0128976, 12.0317, 0.722465, 0.0833294)
 floor_snap_length = 1.0
 
 [node name="background_2lazy" parent="." instance=ExtResource("2_hsjhv")]
@@ -159,11 +159,11 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.3
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.128204, 0.2)
 
 [node name="PropNightstand" parent="Containers" instance=ExtResource("11_dn6y6")]
-transform = Transform3D(-0.999958, 0, 0.00914527, 0, 1, 0, -0.00914527, 0, -0.999958, -12.8996, 0, -1.91083)
+transform = Transform3D(-0.726946, 0, 0.686694, 0, 1, 0, -0.686694, 0, -0.726946, -12.8996, 0, -3.22861)
 skeleton = NodePath("../..")
 
 [node name="Drawer" parent="Containers/PropNightstand" instance=ExtResource("12_pa83n")]
-transform = Transform3D(-4.37722e-08, 0, -1, 0, 1, 0, 1, 0, -4.37722e-08, 0, 0.331, 0)
+transform = Transform3D(-4.28408e-08, 0, -1, 0, 1, 0, 1, 0, -4.28408e-08, 0, 0.331, 0)
 
 [node name="Key" parent="Containers/PropNightstand/Drawer" instance=ExtResource("6_1hgqf")]
 transform = Transform3D(0.984019, 0, 0.178064, 0, 1, 0, -0.178064, 0, 0.984019, 0.0360632, 0.397272, 0.0247583)
@@ -207,7 +207,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.1
 [node name="Triggers" type="Node3D" parent="."]
 
 [node name="INTRO" parent="Triggers" instance=ExtResource("6_1hgqf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.812, 1.11619, -0.0695179)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.812, 1.11619, -2.94631)
 type = 2
 triggerOnce = true
 
@@ -219,12 +219,12 @@ triggerOnce = true
 
 [node name="FadeOut" parent="Triggers/INTRO/Event" instance=ExtResource("14_mbkov")]
 
-[node name="Wait" parent="Triggers/INTRO/Event" instance=ExtResource("17_0043d")]
+[node name="Wait3" parent="Triggers/INTRO/Event" instance=ExtResource("17_0043d")]
 time = 3.0
 
-[node name="Dialogue" parent="Triggers/INTRO/Event" instance=ExtResource("17_odn7j")]
-text = "I have been called to question John Kendall
-who was reported to be a witness of the recent murders."
+[node name="Dialogue3" parent="Triggers/INTRO/Event" instance=ExtResource("17_odn7j")]
+text = "I tracked down John Kendall's location the next morning.
+He is apparently a witness of the recent murder sprees."
 wait = true
 
 [node name="Wait2" parent="Triggers/INTRO/Event" instance=ExtResource("17_0043d")]
@@ -239,6 +239,73 @@ wait = true
 
 [node name="FadeIn" parent="Triggers/INTRO/Event" instance=ExtResource("19_srexd")]
 time = 2.0
+
+[node name="CREDITS" parent="Triggers" instance=ExtResource("6_1hgqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.812, 1.11619, -0.0695179)
+type = 3
+triggerOnce = true
+
+[node name="Event" parent="Triggers/CREDITS" instance=ExtResource("13_of4tc")]
+
+[node name="PlaySound" parent="Triggers/CREDITS/Event" instance=ExtResource("25_w0gew")]
+sound = ExtResource("33_xcki1")
+volume = -20.0
+nonPositional = true
+
+[node name="Dialogue4" parent="Triggers/CREDITS/Event" instance=ExtResource("17_odn7j")]
+text = "Programming:
+pulp_dev"
+wait = true
+
+[node name="Dialogue5" parent="Triggers/CREDITS/Event" instance=ExtResource("17_odn7j")]
+text = "Level Design and Writing:
+pulp_dev
+Dawson"
+wait = true
+
+[node name="Dialogue6" parent="Triggers/CREDITS/Event" instance=ExtResource("17_odn7j")]
+text = "Sound Effects:
+SnakeWig
+"
+wait = true
+
+[node name="Dialogue13" parent="Triggers/CREDITS/Event" instance=ExtResource("17_odn7j")]
+text = "Music:
+Kzarkses
+"
+wait = true
+
+[node name="Dialogue7" parent="Triggers/CREDITS/Event" instance=ExtResource("17_odn7j")]
+text = "Horror Free SFX by YourPalRob"
+wait = true
+
+[node name="Dialogue8" parent="Triggers/CREDITS/Event" instance=ExtResource("17_odn7j")]
+text = "Architexture Kit by Comp-3 Interactive"
+wait = true
+
+[node name="Dialogue9" parent="Triggers/CREDITS/Event" instance=ExtResource("17_odn7j")]
+text = "Max Damage's Low Poly Zombie"
+wait = true
+
+[node name="Dialogue10" parent="Triggers/CREDITS/Event" instance=ExtResource("17_odn7j")]
+text = "Essential Series NOX SOUND"
+wait = true
+
+[node name="Dialogue11" parent="Triggers/CREDITS/Event" instance=ExtResource("17_odn7j")]
+text = "Trailer Park by Elbolilloduro"
+wait = true
+
+[node name="Dialogue12" parent="Triggers/CREDITS/Event" instance=ExtResource("17_odn7j")]
+text = "SBS Tiny Texture Pack by All Screaming Brain Studios"
+wait = true
+
+[node name="Dialogue14" parent="Triggers/CREDITS/Event" instance=ExtResource("17_odn7j")]
+text = "PSX Style Cars by GGBot"
+wait = true
+
+[node name="Dialogue15" parent="Triggers/CREDITS/Event" instance=ExtResource("17_odn7j")]
+text = "Made in Godot Engine"
+wait = true
 
 [node name="trigger_steps" parent="Triggers" instance=ExtResource("6_1hgqf")]
 transform = Transform3D(3.715, 0, -0.000773704, 0, 1, 0, 0.000842907, 0, 3.41, 9.77165, 1.11619, -3.34949)
@@ -307,7 +374,8 @@ triggerOnce = true
 [node name="Event" parent="Triggers/mrkendall" instance=ExtResource("13_of4tc")]
 
 [node name="Dialogue" parent="Triggers/mrkendall/Event" instance=ExtResource("17_odn7j")]
-text = "Hello? Detective Williams from NYPD."
+text = "Hello? Detective Williams from NYCPD. Anyone home?"
+wait = true
 
 [node name="urdead" parent="Triggers" instance=ExtResource("6_1hgqf")]
 transform = Transform3D(3.715, 0, 0, 0, 1, 0, 0, 0, 3.41, -6.10918, -2.68619, -4.87062)
@@ -319,7 +387,7 @@ type = 1
 text = "You can't stop me."
 
 [node name="JumpScare" parent="Triggers" instance=ExtResource("6_1hgqf")]
-transform = Transform3D(4.91619, 0, -1.18799, 0, 1, 0, 4.7485, 0, 1.22995, -13.754, -2.90804, 0.3439)
+transform = Transform3D(-4.94585, 0, 1.18026, 0, 1, 0, -4.7176, 0, -1.23737, -14.0018, -2.90804, -0.160747)
 type = 1
 triggerOnce = true
 
@@ -341,7 +409,7 @@ nonPositional = true
 
 [node name="MonsterJumpScare" parent="Triggers/JumpScare/Event" instance=ExtResource("25_er36i")]
 duration = 0.5
-animation = "Walk"
+animation = "Attack1"
 wait = true
 
 [node name="DisableFlashlight" parent="Triggers/JumpScare/Event" instance=ExtResource("17_gkoin")]
@@ -364,11 +432,16 @@ wait = true
 [node name="Wait4" parent="Triggers/JumpScare/Event" instance=ExtResource("17_0043d")]
 
 [node name="Dialogue3" parent="Triggers/JumpScare/Event" instance=ExtResource("17_odn7j")]
-text = "Detective William' case was closed ten years later. All records of a \"necronomicon\" was erased from the database."
+text = "Detective Williams' case was closed ten years later. All records of a \"tome\" were erased from the database."
 wait = true
 
+[node name="Wait6" parent="Triggers/JumpScare/Event" instance=ExtResource("17_0043d")]
+
+[node name="ActivateTrigger" parent="Triggers/JumpScare/Event" node_paths=PackedStringArray("target") instance=ExtResource("28_pmk70")]
+target = NodePath("../../../CREDITS")
+
 [node name="JumpScare2" parent="Triggers" instance=ExtResource("6_1hgqf")]
-transform = Transform3D(5.00652, 0, 1.16414, 0, 1, 0, -4.65316, 0, 1.25255, 0.656316, -2.90989, 7.44704)
+transform = Transform3D(-5.05465, 0, -1.15105, 0, 1, 0, 4.60083, 0, -1.26459, 0.0731688, -2.95119, 8.17265)
 type = 1
 triggerOnce = true
 
@@ -390,7 +463,7 @@ nonPositional = true
 
 [node name="MonsterJumpScare" parent="Triggers/JumpScare2/Event" instance=ExtResource("25_er36i")]
 duration = 0.5
-animation = "Walk"
+animation = "Attack1"
 wait = true
 
 [node name="DisableFlashlight" parent="Triggers/JumpScare2/Event" instance=ExtResource("17_gkoin")]
@@ -413,31 +486,36 @@ wait = true
 [node name="Wait4" parent="Triggers/JumpScare2/Event" instance=ExtResource("17_0043d")]
 
 [node name="Dialogue3" parent="Triggers/JumpScare2/Event" instance=ExtResource("17_odn7j")]
-text = "Detective William' case was closed ten years later. All records of a \"necronomicon\" was erased from the database."
+text = "Detective Williams' case was closed ten years later. All records of a \"tome\" were erased from the database."
 wait = true
 
+[node name="Wait6" parent="Triggers/JumpScare2/Event" instance=ExtResource("17_0043d")]
+
+[node name="ActivateTrigger" parent="Triggers/JumpScare2/Event" node_paths=PackedStringArray("target") instance=ExtResource("28_pmk70")]
+target = NodePath("../../../CREDITS")
+
 [node name="monstersteps1" parent="Triggers" instance=ExtResource("6_1hgqf")]
-transform = Transform3D(0.101466, 0, 0.999531, 0, 1, 0, -3.31345, 0, 0.0306081, -14.6387, -2.67893, 14.1057)
+transform = Transform3D(0.101466, 0, 0.999531, 0, 1, 0, -3.31345, 0, 0.0306081, -15.0309, -2.67893, 12.5469)
 type = 3
 triggerOnce = true
 
 [node name="Event" parent="Triggers/monstersteps1" instance=ExtResource("13_of4tc")]
 
 [node name="PlaySound" parent="Triggers/monstersteps1/Event" instance=ExtResource("25_w0gew")]
-sound = ExtResource("41_1w05o")
+sound = ExtResource("41_d0rdb")
 
 [node name="monstersteps2" parent="Triggers" instance=ExtResource("6_1hgqf")]
-transform = Transform3D(0.101415, -0.0317596, 0.999027, 0.00322252, 0.999495, 0.0317448, -3.31345, 0, 0.0306081, 0.0992422, -2.67893, 8.16824)
+transform = Transform3D(0.101415, -0.0317596, 0.999027, 0.00322252, 0.999495, 0.0317448, -3.31345, 0, 0.0306081, 9.08767, -2.67893, 14.7263)
 type = 3
 triggerOnce = true
 
 [node name="Event" parent="Triggers/monstersteps2" instance=ExtResource("13_of4tc")]
 
 [node name="PlaySound" parent="Triggers/monstersteps2/Event" instance=ExtResource("25_w0gew")]
-sound = ExtResource("42_jgcvb")
+sound = ExtResource("41_d0rdb")
 
 [node name="monstersteps1trigger" parent="Triggers" instance=ExtResource("6_1hgqf")]
-transform = Transform3D(3.31477, 0, -0.0118329, 0, 1, 0, 0.0392261, 0, 0.99993, 8.87152, -2.67893, 20.305)
+transform = Transform3D(2.42765, 0, 2.1064, 0, 1, 0, -2.07715, 0, 2.46184, 9.97526, -2.679, 16.1529)
 type = 1
 triggerOnce = true
 
@@ -447,7 +525,7 @@ triggerOnce = true
 target = NodePath("../../../monstersteps1")
 
 [node name="monstersteps2trigger" parent="Triggers" instance=ExtResource("6_1hgqf")]
-transform = Transform3D(1.26395, -0.0145266, 0.924344, -0.00157544, 0.999873, 0.0159096, -3.06458, -0.00650537, 0.381228, -4.95318, -2.76683, 14.9491)
+transform = Transform3D(3.31289, 0.00104181, -0.111319, -0.00157544, 0.999873, 0.0497176, 0.118127, -0.0158826, 3.12262, -15.0426, -2.76683, 8.96944)
 type = 1
 triggerOnce = true
 
@@ -486,16 +564,17 @@ conditions = Array[Resource("res://classes/Condition/obj_Condition.gd")]([SubRes
 text = "I must hide I must hide I must hide I must hide I must hide I must hide I must hide I must hide I must hide ..."
 
 [node name="Note2" parent="Triggers/BookEvil/Event" instance=ExtResource("33_5qj3t")]
-text = "Guardian soul steep gracefuly in graspful protection Guardian playful still in grasp for attention Greet Greet Greet Greet Greet Greet ..."
+text = "Guardian soul steep gracefuly in graspful protection G'zuth is playful still in grasp for attention Greet Greet Greet Greet Greet Greet ..."
 
 [node name="PlaySound2" parent="Triggers/BookEvil/Event" instance=ExtResource("25_w0gew")]
-sound = ExtResource("39_y6oth")
+sound = ExtResource("45_pbbmu")
+nonPositional = true
 
 [node name="SetAmbiance" parent="Triggers/BookEvil/Event" instance=ExtResource("25_ftxrt")]
 sound = ExtResource("41_5m1of")
 
 [node name="Note3" parent="Triggers/BookEvil/Event" instance=ExtResource("33_5qj3t")]
-text = "Coming Coming Coming Coming William.
+text = "Coming Coming Coming Coming Williams for what's mine. Prepare what lies for him.
 
 Hide."
 
@@ -522,15 +601,15 @@ sound = ExtResource("38_yc5b8")
 [node name="Note" parent="Triggers/hahadeadend/Event" instance=ExtResource("33_5qj3t")]
 text = "Time to die, Peter Ryan Williams."
 
-[node name="Note2" parent="Triggers/hahadeadend/Event" instance=ExtResource("33_5qj3t")]
-text = "You killed my brothers and sisters and think you can get away with it? "
+[node name="Note4" parent="Triggers/hahadeadend/Event" instance=ExtResource("33_5qj3t")]
+text = "You killed my family and thought you could get away with it?"
 
 [node name="Note3" parent="Triggers/hahadeadend/Event" instance=ExtResource("33_5qj3t")]
 text = "You are very stupid if you thought you could steal what belongs to us.
-Arrogance does not serve Biil'goth, even from myself."
+Arrogance does not serve Biil'goth, not even from myself."
 
 [node name="Note5" parent="Triggers/hahadeadend/Event" instance=ExtResource("33_5qj3t")]
-text = "Go finish playing with G'zithvuul. This is his favorite game."
+text = "G'zuthvuul wants to play. This is his favorite game."
 
 [node name="SetVariable" parent="Triggers/hahadeadend/Event" instance=ExtResource("30_lya3q")]
 variable = "stage"
@@ -539,11 +618,11 @@ value = 666
 [node name="Wait2" parent="Triggers/hahadeadend/Event" instance=ExtResource("17_0043d")]
 
 [node name="Dialogue2" parent="Triggers/hahadeadend/Event" instance=ExtResource("17_odn7j")]
-text = "The tome is MINE. It's MINE."
+text = "No. The tome is MINE. It's MINE."
 wait = true
 
 [node name="Wait3" parent="Triggers/hahadeadend/Event" instance=ExtResource("17_0043d")]
-time = 3.0
+time = 4.0
 
 [node name="Dialogue3" parent="Triggers/hahadeadend/Event" instance=ExtResource("17_odn7j")]
 text = "IT'S MINE."
